@@ -2,20 +2,17 @@ import { FcSearch, FcMenu } from 'react-icons/fc'
 
 function Header() {
   return (
-    <header className="bg-[#BF9270] text-white px-2 py-4 mb-6">
-      <nav className="flex justify-between items-center px-2">
-        <h1 className="text-2xl font-semibold hidden sm:flex">Dog360</h1>
-        <div className="flex items-center gap-4 justify-around w-full">
-          <FcSearch size="2em" />
-          <input
-            type="search"
-            placeholder="Pitbull, Salchicha..."
-            className="p-2 rounded-md text-slate-900"
-          />
-          <a href="" className="hidden sm:flex">
-            Sobre la App
-          </a>
-          <FcMenu size="2em" className="sm:hidden" />
+    <header className="bg-[#BF9270] text-white px-4 py-4 mb-6">
+      <nav className="flex items-center gap-4">
+        <div className="text-xl font-bold text-white">Dog360</div>
+        <input
+          className="w-full p-2 rounded-md"
+          type="text"
+          placeholder="Buscar..."
+        />
+        <div className="flex gap-2">
+          <button>LogIn</button>
+          <button>Register</button>
         </div>
       </nav>
     </header>

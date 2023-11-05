@@ -1,13 +1,15 @@
 import Header from '../components/Header'
 import DogsRendering from '../components/DogsRendering'
+import Footer from '../components/Footer'
 
 function DogsPage() {
   return (
-    <div>
+    <div className="bg-[#E3B7A0] text-white">
       <Header />
-      <main className="max-w-[1200px] mx-auto px-2">
+      <main className="max-w-[1200px] mx-auto px-2 min-h-screen">
         <DogsRendering />
       </main>
+      <Footer />
     </div>
   )
 }
