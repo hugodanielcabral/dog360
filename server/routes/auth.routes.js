@@ -1,21 +1,20 @@
 import { Router } from "express";
 
+import {
+  signin,
+  signup,
+  signout,
+  profile,
+} from "../controllers/auth.controller.js";
+
 const router = Router();
 
-router.post("/signin", (req, res) => {
-  res.json({ message: "Welcome to Dog360" });
-});
+router.post("/signin", signin);
 
-router.post("/signup", (req, res) => {
-  res.json({ message: "Welcome to Dog360" });
-});
+router.post("/signup", signup);
 
-router.post("/signout", (req, res) => {
-  res.json({ message: "Welcome to Dog360" });
-});
+router.post("/signout", signout);
 
-router.get("/profile", (req, res) => {
-  res.json({ message: "Welcome to Dog360" });
-});
+router.get("/profile", profile);
 
 export default router;

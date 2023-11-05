@@ -6,7 +6,7 @@ import {
   createDog,
   updateDog,
   deleteDog,
-} from "../controllers/dogs.controllers.js";
+} from "../controllers/dogs.controller.js";
 
 const router = Router();
 

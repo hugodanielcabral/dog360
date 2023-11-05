@@ -5,7 +5,7 @@ function Header() {
     <header className="bg-[#BF9270] text-white px-2 py-4 mb-6">
       <nav className="flex justify-between items-center px-2">
         <h1 className="text-2xl font-semibold hidden sm:flex">Dog360</h1>
-        <div className="flex items-center gap-4 justify-around w-full sm:justify-end">
+        <div className="flex items-center gap-4 justify-around w-full">
           <FcSearch size="2em" />
           <input
             type="search"
