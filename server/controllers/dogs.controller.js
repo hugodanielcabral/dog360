@@ -33,12 +33,21 @@ export const createDog = async (req, res) => {
     esperanza_de_vida,
     personalidad,
   } = req.body;
+
+  const esperanza_de_vida_entero = parseInt(esperanza_de_vida, 10);
   try {
     const [result] = await pool.query(
       `
       INSERT INTO razas (nombre, descripcion, imagen, tamanio, esperanza_de_vida, personalidad) VALUES (?, ?, ?, ?, ?, ?)
         `,
-      [nombre, descripcion, imagen, tamanio, esperanza_de_vida, personalidad]
+      [
+        nombre,
+        descripcion,
+        imagen,
+        tamanio,
+        esperanza_de_vida_entero,
+        personalidad,
+      ]
     );
     res.json({
       id: result.insertId,
@@ -46,7 +55,7 @@ export const createDog = async (req, res) => {
       descripcion,
       imagen,
       tamanio,
-      esperanza_de_vida,
+      esperanza_de_vida_entero,
       personalidad,
     });
   } catch (error) {
