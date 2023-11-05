@@ -2,9 +2,7 @@ import { pool } from "../db.js";
 
 export const getDogs = async (req, res) => {
   try {
-    const [result] = await pool.query(
-      "SELECT * FROM razas ORDER BY raza_id ASC"
-    );
+    const [result] = await pool.query("SELECT * FROM razas ORDER BY id ASC");
     res.json(result);
   } catch (error) {
     return res.status(500).json({ message: error.message });
@@ -13,7 +11,7 @@ export const getDogs = async (req, res) => {
 
 export const getDog = async (req, res) => {
   try {
-    const [result] = await pool.query("SELECT * FROM razas WHERE raza_id = ?", [
+    const [result] = await pool.query("SELECT * FROM razas WHERE id = ?", [
       req.params.id,
     ]);
 
@@ -43,7 +41,7 @@ export const createDog = async (req, res) => {
       [nombre, descripcion, imagen, tamanio, esperanza_de_vida, personalidad]
     );
     res.json({
-      raza_id: result.insertId,
+      id: result.insertId,
       nombre,
       descripcion,
       imagen,
