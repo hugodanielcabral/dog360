@@ -2,9 +2,7 @@ import { pool } from "../db.js";
 
 export const getDogs = async (req, res) => {
   try {
-    const [result] = await pool.query(
-      "SELECT * FROM razas ORDER BY raza_id ASC"
-    );
+    const [result] = await pool.query("SELECT * FROM razas ORDER BY id ASC");
     res.json(result);
   } catch (error) {
     return res.status(500).json({ message: error.message });
@@ -13,7 +11,7 @@ export const getDogs = async (req, res) => {
 
 export const getDog = async (req, res) => {
   try {
-    const [result] = await pool.query("SELECT * FROM razas WHERE raza_id = ?", [
+    const [result] = await pool.query("SELECT * FROM razas WHERE id = ?", [
       req.params.id,
     ]);
 
@@ -35,20 +33,29 @@ export const createDog = async (req, res) => {
     esperanza_de_vida,
     personalidad,
   } = req.body;
+
+  const esperanza_de_vida_entero = parseInt(esperanza_de_vida, 10);
   try {
     const [result] = await pool.query(
       `
       INSERT INTO razas (nombre, descripcion, imagen, tamanio, esperanza_de_vida, personalidad) VALUES (?, ?, ?, ?, ?, ?)
         `,
-      [nombre, descripcion, imagen, tamanio, esperanza_de_vida, personalidad]
+      [
+        nombre,
+        descripcion,
+        imagen,
+        tamanio,
+        esperanza_de_vida_entero,
+        personalidad,
+      ]
     );
     res.json({
-      raza_id: result.insertId,
+      id: result.insertId,
       nombre,
       descripcion,
       imagen,
       tamanio,
-      esperanza_de_vida,
+      esperanza_de_vida_entero,
       personalidad,
     });
   } catch (error) {
