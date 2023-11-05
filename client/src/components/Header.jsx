@@ -11,18 +11,22 @@ function Header({ title }) {
 
   return (
     <header className="bg-[#BF9270] text-white px-4 py-4 mb-6">
-      <nav className="flex items-center gap-4">
-        <Link to="/">
-          <h2 className="hidden text-xl font-bold text-white sm:block">
-            {title}
-          </h2>
-        </Link>
-        <input
-          className="w-full p-2 rounded-md sm:mx-12"
-          type="text"
-          placeholder="Buscar..."
-        />
-        <div className="flex items-center gap-4">
+      <nav className="flex items-center max-w-5xl gap-4 m-auto">
+        <div>
+          <Link to="/">
+            <h2 className="hidden text-xl font-bold text-white sm:block">
+              {title}
+            </h2>
+          </Link>
+        </div>
+        <div className="w-full">
+          <input
+            className="w-full p-2 rounded-md"
+            type="text"
+            placeholder="Buscar..."
+          />
+        </div>
+        <div className="flex justify-end gap-4 ml-4">
           <Link to="/new">Crear perrito</Link>
           {localStorage.getItem('isLoggedIn') === 'true' ? (
             <button onClick={handleSignOut}>Sign out</button>
