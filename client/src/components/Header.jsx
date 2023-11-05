@@ -1,5 +1,4 @@
-import { FcSearch, FcMenu } from 'react-icons/fc'
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom'
 
 function Header() {
   return (
@@ -14,9 +13,7 @@ function Header() {
         <div className="flex gap-2">
           <button>LogIn</button>
           <button>Register</button>
-          <Link to="/new">
-            Crear perrito
-          </Link>
+          <Link to="/new">Crear perrito</Link>
         </div>
       </nav>
     </header>
