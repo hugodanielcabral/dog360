@@ -14,7 +14,7 @@ export default function DogsRendering() {
     loadDogs()
   }, [])
   return (
-    <div>
+    <div className="grid grid-cols-1 gap-4 px-4 sm:grid-cols-2 md:grid-cols-3">
       <h1>Dogs</h1>
       {dogs.map((dog) => (
         <DogCard dog={dog} key={dog.id} />
