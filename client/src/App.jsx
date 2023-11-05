@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
-import { DogsPage } from './pages/DogsPage'
+import DogsPage from './pages/DogsPage'
 import { DogsForm } from './pages/DogsForm'
 import { NotFound } from './pages/NotFound'
 
