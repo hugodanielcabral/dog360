@@ -4,6 +4,7 @@ import { DogsForm } from './pages/DogsForm'
 import { NotFound } from './pages/NotFound'
 import { Registro } from './pages/Registro'
 import { Login } from "./pages/Login"
+import { DogDetail } from './pages/DogDetail';
 
 export const App = () => {
   return (
@@ -16,6 +17,8 @@ export const App = () => {
       <Route path="/signup" element={<Registro />} />
       //* Login
       <Route path="/signin" element={<Login/>}/>
+      //* DogDetails
+      <Route path="/dogs/:id" element={<DogDetail />} />
       //* NotFound es el error 404 y por defecto cualquier página
       //* que no exista será redirigido a NotFound (por el caracter "*")
       <Route path="*" element={<NotFound />} />

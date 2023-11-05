@@ -3,6 +3,7 @@ import { getDogsRequest } from '../api/dogs.api.js'
 import { DogCard } from '../components/DogCard.jsx'
 
 export default function DogsRendering() {
+
   const [dogs, setDogs] = useState([])
 
   useEffect(() => {
