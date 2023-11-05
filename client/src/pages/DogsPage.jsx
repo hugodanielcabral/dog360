@@ -1,6 +1,7 @@
+import { Header } from '../components/Header'
 
-export const DogsPage = () => {
-  return (
-    <div>DogsPage</div>
-  )
+function DogsPage() {
+  return <Header />
 }
+
+export default DogsPage
