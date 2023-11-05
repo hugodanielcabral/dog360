@@ -1,7 +1,10 @@
-
+import { useNavigate } from 'react-router-dom'
 import { deleteDogRequest } from "../api/dogs.api"
 
 export const DogCard = ({ dog }) => {
+
+  const navigate = useNavigate()
+
 
   const handleDelete =  async (id) => {
     try {
@@ -16,6 +19,7 @@ export const DogCard = ({ dog }) => {
           className="w-full rounded"
           src={dog.imagen}
           alt={dog.nombre}
+          onClick={() => navigate(`/dogs/${dog.id}`)}
         />
       <div className="flex items-center justify-center h-4 p-4">
         <h3 className="font-bold text-white ">{dog.nombre}</h3>
