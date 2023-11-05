@@ -30,77 +30,81 @@ export const DogsForm = () => {
         {({ handleChange, handleSubmit, values, isSubmitting }) => (
           <Form
             onSubmit={handleSubmit}
-            className="flex flex-col justify-center max-w-sm px-2 m-auto"
+            className="max-w-3xl gap-6 px-2 m-auto my-20 sm:flex sm:justify-center"
           >
-            <label className="mt-2 text-sm font-semibold opacity-70">
-              Nombre
-            </label>
-            <input
-              type="text"
-              name="nombre"
-              onChange={handleChange}
-              value={values.nombre}
-              className="p-2 rounded"
-            />
-            <label className="mt-2 text-sm font-semibold opacity-70">
-              Descripción
-            </label>
-            <textarea
-              name="descripcion"
-              rows="3"
-              placeholder=""
-              onChange={handleChange}
-              value={values.descripcion}
-              className="p-2 rounded"
-            />
-            <label className="mt-2 text-sm font-semibold opacity-70">
-              Imagen
-            </label>
-            <input
-              type="text"
-              name="imagen"
-              onChange={handleChange}
-              value={values.imagen}
-              className="p-2 rounded"
-            />
-            <label className="mt-2 text-sm font-semibold opacity-90">
-              Tamaño
-            </label>
-            <input
-              type="text"
-              name="tamanio"
-              onChange={handleChange}
-              value={values.tamanio}
-              className="p-2 rounded"
-            />
-            <label className="mt-2 text-sm font-semibold opacity-75">
-              Esperanza de vida (años)
-            </label>
-            <input
-              type="number"
-              name="esperanza_de_vida"
-              onChange={handleChange}
-              value={values.esperanza_de_vida}
-              className="p-2 rounded"
-            />
-            <label className="mt-2 text-sm font-semibold opacity-70">
-              Personalidad
-            </label>
-            <textarea
-              name="personalidad"
-              rows="3"
-              placeholder=""
-              onChange={handleChange}
-              value={values.personalidad}
-              className="p-2 rounded"
-            />
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className=" bg-[#65451f] mt-4 m-auto py-2 px-4 rounded hover:bg-opacity-90"
-            >
-              {isSubmitting ? 'Guardando...' : 'Guardar'}
-            </button>
+            <div className="flex flex-col flex-1">
+              <label className="mt-2 text-sm font-semibold opacity-70">
+                Nombre
+              </label>
+              <input
+                type="text"
+                name="nombre"
+                onChange={handleChange}
+                value={values.nombre}
+                className="p-2 rounded"
+              />
+              <label className="mt-2 text-sm font-semibold opacity-70">
+                Imagen
+              </label>
+              <input
+                type="text"
+                name="imagen"
+                onChange={handleChange}
+                value={values.imagen}
+                className="p-2 rounded"
+              />
+              <label className="mt-2 text-sm font-semibold opacity-70">
+                Descripción
+              </label>
+              <textarea
+                name="descripcion"
+                rows="3"
+                placeholder=""
+                onChange={handleChange}
+                value={values.descripcion}
+                className="p-2 rounded"
+              />
+            </div>
+            <div className="flex flex-col flex-1">
+              <label className="mt-2 text-sm font-semibold opacity-90">
+                Tamaño
+              </label>
+              <input
+                type="text"
+                name="tamanio"
+                onChange={handleChange}
+                value={values.tamanio}
+                className="p-2 rounded"
+              />
+              <label className="mt-2 text-sm font-semibold opacity-75">
+                Esperanza de vida (años)
+              </label>
+              <input
+                type="number"
+                name="esperanza_de_vida"
+                onChange={handleChange}
+                value={values.esperanza_de_vida}
+                className="p-2 rounded"
+              />
+              <label className="mt-2 text-sm font-semibold opacity-70">
+                Personalidad
+              </label>
+              <textarea
+                name="personalidad"
+                rows="3"
+                placeholder=""
+                onChange={handleChange}
+                value={values.personalidad}
+                className="p-2 rounded"
+              />
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="bg-[#65451f] mt-4 m-auto py-2 px-4 rounded hover:bg-opacity-90 w-full"
+              >
+                {isSubmitting ? 'Guardando...' : 'Guardar'}
+              </button>
+            </div>
           </Form>
         )}
       </Formik>
