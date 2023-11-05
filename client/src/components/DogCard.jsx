@@ -15,6 +15,8 @@ export const DogCard = ({ dog }) => {
         Esperanza de vida: {dog.esperanza_de_vida} años
       </p>
       <p className="text-sm text-gray-700">Personalidad: {dog.personalidad}</p>
+      <button className="bg-red-500 text-white rounded-md p-2 mt-2">Borrar</button>
+      <button className="bg-blue-500 text-white rounded-md p-2 mt-2">Editar</button>
     </div>
   )
 }
