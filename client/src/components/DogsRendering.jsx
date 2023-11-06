@@ -25,3 +25,5 @@ export default function DogsRendering () {
         </div>
     )
 }
+
+export default DogsRendering
