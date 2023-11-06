@@ -1,8 +1,12 @@
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 import { Formik, Form } from "formik"
 import { createDogRequest } from "../api/dogs.api"
 export const DogsForm = () => {
   return (
-    <div>
+    <div className="bg-[#E3B7A0] text-white">
+      <Header />
+      <main className="max-w-[1200px] mx-auto px-2 min-h-screen">
       <Formik 
         initialValues={{
           nombre: "",
@@ -56,6 +60,8 @@ export const DogsForm = () => {
         </Form>
        )}
       </Formik>
+      </main>
+      <Footer />
     </div>
   )
 }
