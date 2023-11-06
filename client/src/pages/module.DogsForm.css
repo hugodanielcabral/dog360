@@ -1,0 +1,17 @@
+input {
+  all: unset;
+
+  background-color: #65451f;
+}
+
+textarea {
+  all: unset;
+
+  background-color: #65451f;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

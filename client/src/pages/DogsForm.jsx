@@ -1,21 +1,20 @@
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import { Formik, Form } from "formik"
-import { createDogRequest } from "../api/dogs.api"
+import { Formik, Form } from 'formik'
+import { createDogRequest } from '../api/dogs.api'
+import { Link } from 'react-router-dom'
+import './module.DogsForm.css'
+
 export const DogsForm = () => {
   return (
-    <div className="bg-[#E3B7A0] text-white">
-      <Header />
-      <main className="max-w-[1200px] mx-auto px-2 min-h-screen">
-      <Formik 
+    <div className="">
+      <Link to="/">Home</Link>
+      <Formik
         initialValues={{
-          nombre: "",
-          descripcion: "",
-          imagen: "",
-          tamanio: "",
-          esperanza_de_vida: "",
-          personalidad: "",
-
+          nombre: '',
+          descripcion: '',
+          imagen: '',
+          tamanio: '',
+          esperanza_de_vida: '',
+          personalidad: '',
         }}
         onSubmit={async (values, actions) => {
           console.log(values)
@@ -24,44 +23,83 @@ export const DogsForm = () => {
             console.log(response)
             actions.resetForm()
           } catch (error) {
-            console.log(error);
+            console.log(error)
           }
         }}
       >
-       {({ handleChange, handleSubmit, values, isSubmitting }) => (
-          <Form onSubmit={ handleSubmit }>
-          <label>
-            Nombre
-          </label>
-          <input type="text" name="nombre" onChange={handleChange} value={values.nombre}/>
-          <label>
-            Descripción
-          </label>
-          <textarea name="descripcion" rows="3" placeholder="Descripción" onChange={handleChange} value={values.descripcion}/>
-          <label>
-            Imagen
-          </label>
-          <input type="text" name="imagen" onChange={handleChange} value={values.imagen}/>
-          <label>
-            Tamaño
-          </label>
-          <input type="text" name="tamanio" onChange={handleChange} value={values.tamanio}/>
-          <label>
-            Esperanza de vida
-          </label>
-          <input type="number" name="esperanza_de_vida" onChange={handleChange} value={values.esperanza_de_vida}/>
-          <label>
-            Personalidad
-          </label>
-          <textarea name="personalidad" rows="3" placeholder="Personaldiad" onChange={handleChange} value={values.personalidad}/>
-          <button type="submit" disabled={isSubmitting}>
-            {isSubmitting ? "Guardando..." : "Guardar"}
-          </button>
-        </Form>
-       )}
+        {({ handleChange, handleSubmit, values, isSubmitting }) => (
+          <Form
+            onSubmit={handleSubmit}
+            className="flex flex-col justify-center max-w-sm px-2 m-auto"
+          >
+            <label className="mt-2 text-sm font-semibold opacity-70">
+              Nombre
+            </label>
+            <input
+              type="text"
+              name="nombre"
+              onChange={handleChange}
+              value={values.nombre}
+              className="p-2 rounded"
+            />
+            <label className="mt-2 text-sm font-semibold opacity-70">
+              Descripción
+            </label>
+            <textarea
+              name="descripcion"
+              rows="3"
+              placeholder=""
+              onChange={handleChange}
+              value={values.descripcion}
+              className="rounded"
+            />
+            <label className="mt-2 text-sm font-semibold opacity-70">
+              Imagen
+            </label>
+            <input
+              type="text"
+              name="imagen"
+              onChange={handleChange}
+              value={values.imagen}
+              className="p-2 rounded"
+            />
+            <label className="mt-2 text-sm font-semibold opacity-90">
+              Tamaño
+            </label>
+            <input
+              type="text"
+              name="tamanio"
+              onChange={handleChange}
+              value={values.tamanio}
+              className="p-2 rounded"
+            />
+            <label className="mt-2 text-sm font-semibold opacity-75">
+              Esperanza de vida (años)
+            </label>
+            <input
+              type="number"
+              name="esperanza_de_vida"
+              onChange={handleChange}
+              value={values.esperanza_de_vida}
+              className="p-2 rounded"
+            />
+            <label className="mt-2 text-sm font-semibold opacity-70">
+              Personalidad
+            </label>
+            <textarea
+              name="personalidad"
+              rows="3"
+              placeholder=""
+              onChange={handleChange}
+              value={values.personalidad}
+              className="rounded"
+            />
+            <button type="submit" disabled={isSubmitting}>
+              {isSubmitting ? 'Guardando...' : 'Guardar'}
+            </button>
+          </Form>
+        )}
       </Formik>
-      </main>
-      <Footer />
     </div>
   )
 }

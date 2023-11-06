@@ -7,7 +7,7 @@ function DogsPage() {
   
   return (
     <div className="bg-[#E3B7A0] text-white">
-      <Header />
+      <Header title="Dog360" />
       <main className="max-w-[1200px] mx-auto px-2 min-h-screen">
         <DogsRendering/>
       </main>
