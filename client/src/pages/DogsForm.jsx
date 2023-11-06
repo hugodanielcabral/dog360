@@ -1,9 +1,11 @@
 import { Formik, Form } from 'formik'
 import { createDogRequest } from '../api/dogs.api'
 import { Link } from 'react-router-dom'
+import { useDogs } from '../context/DogContext'
 import './module.DogsForm.css'
 
 export const DogsForm = () => {
+  const { createDog } = useDogs()
   return (
     <div className="">
       <Link to="/">Home</Link>
@@ -17,14 +19,8 @@ export const DogsForm = () => {
           personalidad: '',
         }}
         onSubmit={async (values, actions) => {
-          console.log(values)
-          try {
-            const response = await createDogRequest(values)
-            console.log(response)
-            actions.resetForm()
-          } catch (error) {
-            console.log(error)
-          }
+          createDog(values)
+          actions.resetForm()
         }}
       >
         {({ handleChange, handleSubmit, values, isSubmitting }) => (

@@ -1,18 +1,13 @@
 import { useNavigate } from 'react-router-dom'
 import { deleteDogRequest } from "../api/dogs.api"
+import { useDogs } from '../context/DogContext'
 
 export const DogCard = ({ dog }) => {
 
+  const { deleteDog } = useDogs()
+
   const navigate = useNavigate()
-
-
-  const handleDelete = async (id) => {
-    try {
-      await deleteDogRequest(id)
-    } catch (error) {
-      console.error(error)
-    }
-  }
+ 
   return (
     <div className="p-2 bg-[#BF9270] rounded shadow cursor-pointer">
         <img
@@ -27,7 +22,7 @@ export const DogCard = ({ dog }) => {
       <div className="flex items-center justify-center h-4 p-4">
         <button
           className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-          onClick={() => handleDelete(dog.id)}
+          onClick={() => deleteDog(dog.id)}
         >
           Eliminar
         </button>

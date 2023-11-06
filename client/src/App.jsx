@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
+import { DogContextProvider } from "./context/DogContext"
 import DogsPage from './pages/DogsPage'
 import { DogsForm } from './pages/DogsForm'
 import { NotFound } from './pages/NotFound'
@@ -6,9 +7,11 @@ import { Registro } from './pages/Registro'
 import { Login } from "./pages/Login"
 import { DogDetail } from './pages/DogDetail';
 
+
 export const App = () => {
   return (
-    <Routes>
+   <DogContextProvider>
+     <Routes>
       //* DogsPage es "index"
       <Route path="/" element={<DogsPage />} />
       //* DogsForm es el formulario para crear una nueva raza
@@ -23,5 +26,6 @@ export const App = () => {
       //* que no exista será redirigido a NotFound (por el caracter "*")
       <Route path="*" element={<NotFound />} />
     </Routes>
+   </DogContextProvider>
   )
 }

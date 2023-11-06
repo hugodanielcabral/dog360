@@ -1,17 +1,12 @@
-import { useState, useEffect } from 'react'
-import { getDogsRequest } from '../api/dogs.api.js'
+import { useEffect } from 'react'
 import { DogCard } from '../components/DogCard.jsx'
+import { useDogs } from '../context/DogContext.jsx'
 
 export default function DogsRendering() {
 
-  const [dogs, setDogs] = useState([])
-
+  const { dogs, loadDogs } = useDogs()
+  
   useEffect(() => {
-    const loadDogs = async () => {
-      const response = await getDogsRequest()
-      setDogs(response.data)
-      console.log(response.data)
-    }
     loadDogs()
   }, [])
 
