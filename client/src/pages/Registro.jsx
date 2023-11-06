@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
 export const Registro = () => {
-  const [nombre, setNombre] = useState('');
-  const [password, setPassword] = useState('');
-  const [correo, setCorreo] = useState('');
-  const [correoValido, setCorreoValido] = useState(true);
+  const [nombre, setNombre] = useState('')
+  const [password, setPassword] = useState('')
+  const [correo, setCorreo] = useState('')
+  const [correoValido, setCorreoValido] = useState(true)
 
   const handleRegistro = () => {
     if (!nombre || !password || !correo) {
-      alert('Por favor, completa todos los campos');
-      return;
+      alert('Por favor, completa todos los campos')
+      return
     }
 
     if (!correoValido) {
-      alert('Por favor, ingresa un correo válido');
-      return;
+      alert('Por favor, ingresa un correo válido')
+      return
     }
 
     const usuario = {
@@ -22,70 +22,71 @@ export const Registro = () => {
       nombre,
       password,
       correo,
-    };
+    }
 
-    const usuariosGuardados = JSON.parse(localStorage.getItem('usuarios')) || [];
-    usuariosGuardados.push(usuario);
-    localStorage.setItem('usuarios', JSON.stringify(usuariosGuardados));
+    const usuariosGuardados = JSON.parse(localStorage.getItem('usuarios')) || []
+    usuariosGuardados.push(usuario)
+    localStorage.setItem('usuarios', JSON.stringify(usuariosGuardados))
 
-    setNombre('');
-    setPassword('');
-    setCorreo('');
+    setNombre('')
+    setPassword('')
+    setCorreo('')
 
-    alert('Registro exitoso');
-  };
+    alert('Registro exitoso')
+  }
 
   const validarCorreo = (correo) => {
-    const regexCorreo = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    return regexCorreo.test(correo);
-  };
+    const regexCorreo = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+    return regexCorreo.test(correo)
+  }
 
   const handleChangeCorreo = (e) => {
-    const nuevoCorreo = e.target.value;
-    setCorreo(nuevoCorreo);
-    setCorreoValido(validarCorreo(nuevoCorreo));
-  };
+    const nuevoCorreo = e.target.value
+    setCorreo(nuevoCorreo)
+    setCorreoValido(validarCorreo(nuevoCorreo))
+  }
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow-lg w-96 mx-auto mt-4">
-      <h2 className="text-xl font-semibold mb-4">Registro de Usuario</h2>
-      <div className="mb-2">
-        <label className="block text-gray-600">Nombre:</label>
+    <div className="bg-white bg-opacity-70 rounded-lg shadow-lg max-w-md m-auto p-4 flex flex-col justify-center mt-28">
+      <h2 className="text-3xl font-bold mb-4 text-slate-900">
+        Registro de Usuario
+      </h2>
+      <div className="flex flex-col">
+        <label className="block text-slate-900 opacity-90">Nombre:</label>
         <input
           type="text"
           value={nombre}
           onChange={(e) => setNombre(e.target.value)}
-          className="w-full px-2 py-1 border border-gray-300 rounded focus:outline-none focus:border-blue-400"
+          className="px-2 py-1 border border-gray-300 rounded focus:outline-none focus:border-blue-400"
         />
-      </div>
-      <div className="mb-2">
-        <label className="block text-gray-600">Contraseña:</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="w-full px-2 py-1 border border-gray-300 rounded focus:outline-none focus:border-blue-400"
-        />
-      </div>
-      <div className="mb-2">
-        <label className="block text-gray-600">Correo:</label>
+        <label className="block text-slate-900 mt-2 opacity-90">Correo:</label>
         <input
           type="email"
           value={correo}
           onChange={handleChangeCorreo}
-          className={`w-full px-2 py-1 border ${correoValido ? 'border-gray-300' : 'border-red-500'} rounded focus:outline-none focus:border-blue-400`}
+          className={` px-2 py-1 border ${
+            correoValido ? 'border-gray-300' : 'border-red-500'
+          } rounded focus:outline-none focus:border-blue-400`}
         />
         {!correoValido && (
           <p className="text-red-500 text-sm mt-1">Correo no válido</p>
         )}
+        <label className="block text-slate-900 mt-2 opacity-90">
+          Contraseña:
+        </label>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className=" px-2 py-1 border border-gray-300 rounded focus:outline-none focus:border-blue-400"
+        />
+        <button
+          onClick={handleRegistro}
+          className="bg-[#65451f] p-2 rounded-md mt-4 hover:opacity-80 m-auto text-sm focus:outline-none"
+        >
+          Registrarse
+        </button>
       </div>
-      <button
-        onClick={handleRegistro}
-        className="bg-blue-500 text-white p-2 rounded-md mt-4 hover:bg-blue-600 focus:outline-none"
-      >
-        Registrarse
-      </button>
-      
     </div>
-  );
-};
+  )
+}
