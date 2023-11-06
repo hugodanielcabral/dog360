@@ -10,23 +10,15 @@ export const DogCard = ({ dog }) => {
     }
   }
   return (
-    <div className="max-w-md p-4 m-4 bg-white rounded-lg shadow-lg">
-      <h1 className="mb-2 text-2xl font-bold text-gray-800">
-        Raza: {dog.nombre}
-      </h1>
+    <div className="p-2 bg-[#BF9270] rounded shadow cursor-pointer">
       <img
         src={dog.imagen}
-        alt=""
-        className="object-cover w-full h-auto rounded-md"
+        alt={`Dog ${dog.id}`}
+        className="w-full h-[200px] object-cover"
       />
-      <p className="mt-2 text-sm text-gray-700">{dog.descripcion}</p>
-      <p className="text-sm text-gray-700">Tamaño: {dog.tamanio}</p>
-      <p className="text-sm text-gray-700">
-        Esperanza de vida: {dog.esperanza_de_vida} años
-      </p>
-      <p className="text-sm text-gray-700">Personalidad: {dog.personalidad}</p>
-      <button className="bg-red-500 text-white rounded-md p-2 mt-2" onClick={() => handleDelete(dog.id)}>Borrar</button>
-      <button className="bg-blue-500 text-white rounded-md p-2 mt-2">Editar</button>
+      <div className="flex items-center justify-center h-4 p-4">
+        <h3 className="font-bold text-white ">{dog.nombre}</h3>
+      </div>
     </div>
   )
 }

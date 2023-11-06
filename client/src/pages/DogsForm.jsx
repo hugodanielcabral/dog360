@@ -51,7 +51,7 @@ export const DogsForm = () => {
               placeholder=""
               onChange={handleChange}
               value={values.descripcion}
-              className="rounded"
+              className="p-2 rounded"
             />
             <label className="mt-2 text-sm font-semibold opacity-70">
               Imagen
@@ -92,9 +92,13 @@ export const DogsForm = () => {
               placeholder=""
               onChange={handleChange}
               value={values.personalidad}
-              className="rounded"
+              className="p-2 rounded"
             />
-            <button type="submit" disabled={isSubmitting}>
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className=" bg-[#65451f] mt-4 m-auto py-2 px-4 rounded hover:bg-opacity-90"
+            >
               {isSubmitting ? 'Guardando...' : 'Guardar'}
             </button>
           </Form>
