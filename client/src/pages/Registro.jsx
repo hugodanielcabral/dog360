@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export const Registro = () => {
   const [nombre, setNombre] = useState('')
@@ -86,6 +87,12 @@ export const Registro = () => {
         >
           Registrarse
         </button>
+        <Link
+          to="/signin"
+          className="bg-[#65451f] p-2 rounded-md mt-4 hover:opacity-80 m-auto text-sm focus:outline-none"
+        >
+          Inicia Sesión
+        </Link>
       </div>
     </div>
   )

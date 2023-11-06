@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
 export const Login = () => {
   const navigate = useNavigate()
@@ -48,41 +48,42 @@ export const Login = () => {
   return (
     <div className="bg-white bg-opacity-70 rounded-lg shadow-lg max-w-md m-auto p-4 flex flex-col justify-center mt-28">
       <h2 className="text-3xl font-bold mb-4 text-slate-900">
-        Inicio de Sesión
+        Inicio de Usuario
       </h2>
       <div className="flex flex-col">
-        <label clsassName="block mt-2 opacity-90 text-black">Correo:</label>
+        <label className="block text-slate-900 opacity-90">Correo:</label>
         <input
           type="email"
           value={correo}
           onChange={handleChangeCorreo}
-          className={`w-full px-2 py-1 border ${
+          className={` px-2 py-1 border ${
             correoValido ? 'border-gray-300' : 'border-red-500'
           } rounded focus:outline-none focus:border-blue-400`}
         />
         {!correoValido && (
           <p className="text-red-500 text-sm mt-1">Correo no válido</p>
         )}
-        <label className="block text-slate-900 mt-2 opacity-90  ">
+        <label className="block text-slate-900 mt-2 opacity-90">
           Contraseña:
         </label>
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full px-2 py-1 border border-gray-300 rounded focus:outline-none focus:border-blue-400"
+          className=" px-2 py-1 border border-gray-300 rounded focus:outline-none focus:border-blue-400"
         />
-        {!credencialesCorrectas && (
-          <p className="text-red-500 text-sm mb-2">
-            Credenciales incorrectas. Por favor, intenta de nuevo.
-          </p>
-        )}
         <button
           onClick={handleLogin}
           className="bg-[#65451f] p-2 rounded-md mt-4 hover:opacity-80 m-auto text-sm focus:outline-none"
         >
           Iniciar Sesión
         </button>
+        <Link
+          to="/signup"
+          className="bg-[#65451f] p-2 rounded-md mt-4 hover:opacity-80 m-auto text-sm focus:outline-none"
+        >
+          Registrate
+        </Link>
       </div>
     </div>
   )
