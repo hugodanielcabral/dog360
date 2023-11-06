@@ -6,7 +6,7 @@ export const DogCard = ({ dog }) => {
   const navigate = useNavigate()
 
 
-  const handleDelete =  async (id) => {
+  const handleDelete = async (id) => {
     try {
       await deleteDogRequest(id)
     } catch (error) {
@@ -24,6 +24,14 @@ export const DogCard = ({ dog }) => {
       <div className="flex items-center justify-center h-4 p-4">
         <h3 className="font-bold text-white ">{dog.nombre}</h3>
       </div>
+      <div className="flex items-center justify-center h-4 p-4">
+        <button
+          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+          onClick={() => handleDelete(dog.id)}
+        >
+          Eliminar
+        </button>
+        </div>
     </div>
   )
 }

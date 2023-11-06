@@ -110,7 +110,7 @@ export const updateDog = async (req, res) => {
 
 export const deleteDog = async (req, res) => {
   try {
-    const [result] = await pool.query("DELETE FROM razas WHERE raza_id = ?", [
+    const [result] = await pool.query("DELETE FROM razas WHERE id = ?", [
       req.params.id,
     ]);
 
