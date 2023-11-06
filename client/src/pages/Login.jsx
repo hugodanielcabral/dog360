@@ -51,7 +51,7 @@ export const Login = () => {
         Inicio de Sesión
       </h2>
       <div className="flex flex-col">
-        <label clsassName="block text-slate-900 mt-2 opacity-90">Correo:</label>
+        <label clsassName="block mt-2 opacity-90 text-black">Correo:</label>
         <input
           type="email"
           value={correo}
@@ -63,7 +63,7 @@ export const Login = () => {
         {!correoValido && (
           <p className="text-red-500 text-sm mt-1">Correo no válido</p>
         )}
-        <label className="block text-slate-900 mt-2 opacity-90">
+        <label className="block text-slate-900 mt-2 opacity-90  ">
           Contraseña:
         </label>
         <input
