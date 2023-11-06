@@ -1,5 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import { getDogsRequest, getDogRequest, createDogRequest,deleteDogRequest } from "../api/dogs.api"
+import { Toast } from "../libs/sweetalert.js";
+
 
 export const DogContext = createContext();
 
@@ -31,6 +33,11 @@ export const DogContextProvider = ({ children }) => {
       const createDog = async (dog) => {
         try {
             const response = await createDogRequest(dog)
+            setDogs([...dogs, response.data])
+            Toast.fire({
+              icon: 'success',
+              title: 'Perro creado',
+            })
           } catch (error) {
             console.log(error)
           }
@@ -40,6 +47,10 @@ export const DogContextProvider = ({ children }) => {
         try {
           await deleteDogRequest(id)
           setDogs(dogs.filter(dog => dog.id !== id))
+          Toast.fire({
+            icon: 'success',
+            title: 'Perro eliminado',
+          })
         } catch (error) {
           console.error(error)
         }

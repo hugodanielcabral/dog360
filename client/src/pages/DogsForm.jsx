@@ -1,5 +1,4 @@
 import { Formik, Form } from 'formik'
-import { createDogRequest } from '../api/dogs.api'
 import { Link } from 'react-router-dom'
 import { useDogs } from '../context/DogContext'
 import './module.DogsForm.css'
@@ -19,7 +18,7 @@ export const DogsForm = () => {
           personalidad: '',
         }}
         onSubmit={async (values, actions) => {
-          createDog(values)
+          createDog(values)          
           actions.resetForm()
         }}
       >

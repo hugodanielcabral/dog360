@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom'
-import { deleteDogRequest } from "../api/dogs.api"
 import { useDogs } from '../context/DogContext'
 
 export const DogCard = ({ dog }) => {
