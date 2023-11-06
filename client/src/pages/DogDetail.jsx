@@ -1,4 +1,4 @@
-export default function DogDetail() {
+export function DogDetail() {
   return (
     <div className="max-w-md p-4 m-4 bg-white rounded-lg shadow-lg">
       <p className="mt-2 text-sm text-gray-700">{dog.descripcion}</p>
