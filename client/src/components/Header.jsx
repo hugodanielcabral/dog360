@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom'
+import dog from '../images/dog.png'
 
 function Header({ title }) {
   const navigate = useNavigate()
@@ -11,21 +12,17 @@ function Header({ title }) {
 
   return (
     <header className="bg-[#BF9270] text-white px-4 py-4 mb-6">
-      <nav className="flex items-center max-w-5xl gap-4 m-auto">
+      <nav className="flex items-center m-auto justify-evenly">
         <div>
           <Link to="/">
-            <h2 className="hidden text-xl font-bold text-white sm:block">
-              {title}
-            </h2>
+            <img src={dog} alt="" width={90} />
           </Link>
         </div>
-        <div className="w-full">
-          <input
-            className="w-full p-2 rounded-md"
-            type="text"
-            placeholder="Buscar..."
-          />
-        </div>
+        <input
+          className="w-[500px] p-2 rounded-md"
+          type="text"
+          placeholder="Buscar..."
+        />
         <div className="flex justify-end gap-4 ml-4">
           <Link to="/new">Crear perrito</Link>
           {localStorage.getItem('isLoggedIn') === 'true' ? (

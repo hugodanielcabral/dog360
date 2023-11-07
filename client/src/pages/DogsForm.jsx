@@ -18,7 +18,7 @@ export const DogsForm = () => {
           personalidad: '',
         }}
         onSubmit={async (values, actions) => {
-          createDog(values)          
+          createDog(values)
           actions.resetForm()
         }}
       >
@@ -28,7 +28,7 @@ export const DogsForm = () => {
             className="max-w-3xl gap-6 px-2 m-auto my-20 sm:flex sm:justify-center"
           >
             <div className="flex flex-col flex-1">
-              <label className="mt-2 text-sm font-semibold opacity-70">
+              <label className="mt-2 text-sm font-bold opacity-90">
                 Nombre
               </label>
               <input
@@ -38,7 +38,7 @@ export const DogsForm = () => {
                 value={values.nombre}
                 className="p-2 rounded"
               />
-              <label className="mt-2 text-sm font-semibold opacity-70">
+              <label className="mt-2 text-sm font-bold opacity-90">
                 Imagen
               </label>
               <input
@@ -48,7 +48,7 @@ export const DogsForm = () => {
                 value={values.imagen}
                 className="p-2 rounded"
               />
-              <label className="mt-2 text-sm font-semibold opacity-70">
+              <label className="mt-2 text-sm font-bold opacity-90">
                 Descripción
               </label>
               <textarea
@@ -59,9 +59,16 @@ export const DogsForm = () => {
                 value={values.descripcion}
                 className="p-2 rounded"
               />
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="bg-[#65451f] mt-4 m-auto py-2 px-4 rounded hover:bg-opacity-90 w-full"
+              >
+                {isSubmitting ? 'Limpiando...' : 'Reset'}
+              </button>
             </div>
             <div className="flex flex-col flex-1">
-              <label className="mt-2 text-sm font-semibold opacity-90">
+              <label className="mt-2 text-sm font-bold opacity-90">
                 Tamaño
               </label>
               <input
@@ -71,7 +78,7 @@ export const DogsForm = () => {
                 value={values.tamanio}
                 className="p-2 rounded"
               />
-              <label className="mt-2 text-sm font-semibold opacity-75">
+              <label className="mt-2 text-sm font-bold opacity-90">
                 Esperanza de vida (años)
               </label>
               <input
@@ -81,7 +88,7 @@ export const DogsForm = () => {
                 value={values.esperanza_de_vida}
                 className="p-2 rounded"
               />
-              <label className="mt-2 text-sm font-semibold opacity-70">
+              <label className="mt-2 text-sm font-bold opacity-90">
                 Personalidad
               </label>
               <textarea
