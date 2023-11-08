@@ -1,7 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
 import dog from '../images/dog.png'
 import Swal from 'sweetalert2'
-import { useEffect } from 'react'
 
 function Header({ title }) {
   const navigate = useNavigate()
@@ -14,6 +13,9 @@ function Header({ title }) {
       title: 'Sesión cerrada',
       showConfirmButton: false,
       timer: 1500
+    }).then(() => {
+      localStorage.removeItem('isLoggedIn')
+      navigate('/signin')
     })
     navigate('/')
   }
