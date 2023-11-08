@@ -18,7 +18,9 @@ export const App = () => {
         <Route path="/new" element={<PrivateRoute element={<DogsForm />} />} />
         <Route path="/signup" element={<Registro />} />
         <Route path="/signin" element={<Login />} />
-        <Route path="/dog/:id" element={<DogDetail />} />
+{/*         <Route path="/dog/:id" element={<DogDetail />} />
+ */}        
+        <Route path='/edit/:id' element={<DogsForm/>}/>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </DogContextProvider>

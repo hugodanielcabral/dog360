@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { useDogs } from '../context/DogContext'
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 export const DogCard = ({ dog }) => {
@@ -49,6 +50,7 @@ export const DogCard = ({ dog }) => {
         >
           Eliminar
         </button>
+        <Link to={`/edit/${dog.id}`}>Editar</Link>
       </div>
     </div>
   );

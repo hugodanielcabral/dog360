@@ -1,10 +1,13 @@
 import { Formik, Form } from 'formik'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useDogs } from '../context/DogContext'
 import './module.DogsForm.css'
 
 export const DogsForm = () => {
+  
   const { createDog } = useDogs()
+
+  
   return (
     <div className="">
       <Link to="/">Home</Link>
