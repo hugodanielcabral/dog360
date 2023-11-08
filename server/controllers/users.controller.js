@@ -5,8 +5,8 @@ export const signin = async (req, res) => {
 
   try {
     const [result] = await pool.query(
-      `UPDATE usuarios SET estado = 1 WHERE correo = ? AND contrasenia = ?`,
-      [correo, contrasenia]
+      `UPDATE usuarios SET estado = ? WHERE correo = ? AND contrasenia = ?`,
+      [1, correo, contrasenia]
     );
 
     if (result.length === 0) {
@@ -25,12 +25,12 @@ export const signin = async (req, res) => {
 };
 
 export const singup = async (req, res) => {
-  const { nombre, apellido, correo, contrasenia, rol } = req.body;
+  const { nombre, apellido, correo, contrasenia, estado, rol } = req.body;
 
   try {
     const [result] = await pool.query(
-      "INSERT INTO usuarios (nombre, apellido, correo, contrasenia, estado, rol) VALUES (?, ?, ?, ?, 0, ?)",
-      [nombre, apellido, correo, contrasenia, rol]
+      `INSERT INTO usuarios (nombre, apellido, correo, contrasenia, estado, rol) VALUES (?, ?, ?, ?, ?, ?)`,
+      [nombre, apellido, correo, contrasenia, estado, rol]
     );
 
     res.json({
@@ -43,7 +43,7 @@ export const singup = async (req, res) => {
       rol,
     });
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    return res.status(409).json({ message: error.message });
   }
 };
 
@@ -52,8 +52,8 @@ export const logout = async (req, res) => {
 
   try {
     const [result] = await pool.query(
-      "UPDATE usuarios SET estado = 0 WHERE id = ?",
-      [id]
+      "UPDATE usuarios SET estado = ? WHERE id = ?",
+      [0, id]
     );
 
     if (result.affectedRows === 0)
