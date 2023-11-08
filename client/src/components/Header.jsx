@@ -121,14 +121,17 @@ const showTurnos = () => {
           {
             localStorage.getItem('rol') === 'ADMIN' && (
               <>
-                <Link to="/new">Crear perrito</Link>
-                <button onClick={showTurnoForm}>Solicitar turno</button>
-                <button onClick={showTurnos}>Mis turnos</button>
+               <Link to="/new" className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">Crear perrito</Link>
               </>
             )
           }
           {localStorage.getItem('isLoggedIn') === 'true' ? (
-            <button onClick={handleSignOut}>Sign out</button>
+            <>
+              <button onClick={showTurnoForm} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">Solicitar turno</button>
+              <button onClick={showTurnos} className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2">Mis turnos</button>
+              <button onClick={handleSignOut} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Sign out</button>
+
+            </>
           ) : (
             <>
               <Link to="/signin">Login</Link>
