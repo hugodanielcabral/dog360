@@ -19,14 +19,22 @@ export const DogContextProvider = ({ children }) => {
   const [dogs, setDogs] = useState([])
 
   const loadDogs = async () => {
-    const response = await getDogsRequest()
-    setDogs(response.data)
-    console.log(response.data)
+    try {
+      const response = await getDogsRequest();
+      setDogs(response.data);
+    } catch (error) {
+      console.error(error);
+    }
   }
+  
 
   const loadDog = async (id) => {
-    const response = await getDogRequest(id)
-    setDogs(response.data)
+    try {
+      const response = await getDogRequest(id)
+      setDogs(response.data)
+    } catch (error) {
+      console.error(error)
+    }
   }
 
       const createDog = async (dog) => {

@@ -4,13 +4,12 @@ import { useDogs } from '../context/DogContext.jsx'
 
 export function DogDetail() {
   const { id } = useParams()
-  console.log(id);
   //! dogs es un objeto con un solo valor (no se puede iterar con el map)
   const { dogs, loadDog } = useDogs()
 
   useEffect(() => {
     loadDog(id)
-  }, [id])
+  }, [ id ])
 
   return (
     <div className="max-w-md mx-auto p-4 bg-white rounded-lg shadow-lg">
