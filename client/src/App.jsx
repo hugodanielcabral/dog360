@@ -17,16 +17,7 @@ export const App = () => {
       <Routes>
         <Route
           path="/"
-          element={
-            isLogged ? (
-              <DogsPage />
-            ) : (
-              () => {
-                navigate('/signin')
-                return null
-              }
-            )
-          }
+          element={ isLogged ? <DogsPage/> : <Login/>}
         />
         <Route path="/new" element={<PrivateRoute element={<DogsForm />} />} />
         <Route path="/signup" element={<Registro />} />
