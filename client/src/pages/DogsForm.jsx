@@ -5,8 +5,9 @@ import './module.DogsForm.css'
 
 export const DogsForm = () => {
   
-  const { createDog } = useDogs()
+  const { createDog, updateDog } = useDogs()
 
+  const { id } = useParams()
   
   return (
     <div className="">
@@ -21,8 +22,12 @@ export const DogsForm = () => {
           personalidad: '',
         }}
         onSubmit={async (values, actions) => {
-          createDog(values)
-          actions.resetForm()
+          if (id){
+            await updateDog(id, values)
+          }else {
+            createDog(values)
+            actions.resetForm()
+          }
         }}
       >
         {({ handleChange, handleSubmit, values, isSubmitting }) => (

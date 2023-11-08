@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { getDogsRequest, getDogRequest, createDogRequest,deleteDogRequest } from "../api/dogs.api"
+import { getDogsRequest, getDogRequest, createDogRequest, updateDogRequest, deleteDogRequest } from "../api/dogs.api"
 import { Toast } from "../libs/sweetalert.js";
 
 
@@ -63,9 +63,17 @@ export const DogContextProvider = ({ children }) => {
         }
       }
 
+      const updateDog = async (id, dog) => {
+        try {
+          await updateDog(id, dog)
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
   return (
     <DogContext.Provider
-      value={{ dogs, loadDogs, loadDog, createDog, deleteDog }}
+      value={{ dogs, loadDogs, loadDog, createDog, updateDog,deleteDog }}
     >
       {children}
     </DogContext.Provider>

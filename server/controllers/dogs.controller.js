@@ -83,7 +83,7 @@ export const updateDog = async (req, res) => {
       tamanio = IFNULL(?, tamanio), 
       esperanza_de_vida = IFNULL(?, esperanza_de_vida), 
       personalidad = IFNULL(?, personalidad) 
-      WHERE raza_id = ?
+      WHERE id = ?
       `,
       [
         nombre,
