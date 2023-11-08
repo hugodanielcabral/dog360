@@ -19,10 +19,11 @@ export const Registro = () => {
     }
 
     const usuario = {
-      usuario_id: Date.now(),
+      usuario_id: Math.floor(Math.random() * 1000000),
       nombre,
       password,
       correo,
+      rol: "Cliente",
     }
 
     const usuariosGuardados = JSON.parse(localStorage.getItem('usuarios')) || []

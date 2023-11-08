@@ -1,9 +1,10 @@
-import { useParams } from 'react-router-dom'
 import { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import { useDogs } from '../context/DogContext.jsx'
 
 export function DogDetail() {
   const { id } = useParams()
+  console.log(id);
   //! dogs es un objeto con un solo valor (no se puede iterar con el map)
   const { dogs, loadDog } = useDogs()
 
