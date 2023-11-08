@@ -99,10 +99,8 @@ export const updateDog = async (req, res) => {
     if (result.affectedRows === 0)
       return res.status(404).json({ message: "Raza no encontrada" });
 
-    const [rows] = await pool.query("SELECT * FROM razas WHERE raza_id = ?", [
-      id,
-    ]);
-    res.json(rows[0]);
+    const [rows] = await pool.query("SELECT * FROM razas WHERE id = ?", [id]);
+    res.status(200).json(rows[0]);
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }

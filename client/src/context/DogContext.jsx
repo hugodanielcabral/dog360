@@ -65,7 +65,8 @@ export const DogContextProvider = ({ children }) => {
 
       const updateDog = async (id, dog) => {
         try {
-          await updateDog(id, dog)
+          const response =await updateDogRequest(id, dog);
+          return response
         } catch (error) {
           console.error(error);
         }

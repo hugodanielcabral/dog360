@@ -2,28 +2,55 @@ import { Formik, Form } from 'formik'
 import { Link, useParams } from 'react-router-dom'
 import { useDogs } from '../context/DogContext'
 import './module.DogsForm.css'
+import { useEffect } from 'react'
+import Swal from 'sweetalert2'
 
 export const DogsForm = () => {
-  
-  const { createDog, updateDog } = useDogs()
+  const { loadDogs,createDog, updateDog, dogs } = useDogs()
 
   const { id } = useParams()
+  const dog = dogs.find((dog) => dog.id == id)
+
+  if(id){
+    useEffect(() => {
+      loadDogs();
+    }, [id]);
+  }
+
+
+  //* Si recargamos la pagina, se crasheaba debido a que dog no tenia 
+  //* los datos, la solucion fue agregar el useEffect y que este se
+  //* ejecute cada vez que cambia el id y ademas poner el if de abajo
+  if (!dog && id) {
+    return <div>Loading or not found...</div>;
+  }
   
   return (
     <div className="">
       <Link to="/">Home</Link>
       <Formik
         initialValues={{
-          nombre: '',
-          descripcion: '',
-          imagen: '',
-          tamanio: '',
-          esperanza_de_vida: '',
-          personalidad: '',
+          nombre: dog?.nombre || '',
+          imagen: dog?.imagen || '',
+          descripcion: dog?.descripcion || '',
+          tamanio: dog?.tamanio || '',
+          personalidad: dog?.personalidad || '',
+          esperanza_de_vida: dog?.esperanza_de_vida || '',
         }}
         onSubmit={async (values, actions) => {
           if (id){
-            await updateDog(id, values)
+            const result = await updateDog(parseInt(id), values)
+            result.status === 200 ? Swal.fire({
+              icon: 'success',
+              title: 'Raza actualizada',
+              showConfirmButton: false,
+              timer: 1500 
+            }) : Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              showConfirmButton: false,
+              timer: 1500 
+            })
           }else {
             createDog(values)
             actions.resetForm()
