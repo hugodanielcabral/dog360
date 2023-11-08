@@ -4,21 +4,21 @@ export const signin = async (req, res) => {
   const { correo, contrasenia } = req.body;
 
   try {
-    const [result] = await pool.query(
+    /* const [result] = await pool.query(
       `UPDATE usuarios SET estado = ? WHERE correo = ? AND contrasenia = ?`,
-      [1, correo, contrasenia]
+      [estado, correo, contrasenia]
+    ); */
+
+    const [result] = await pool.query(
+      "SELECT * FROM usuarios WHERE correo = ? AND contrasenia = ?",
+      [correo, contrasenia]
     );
 
     if (result.length === 0) {
       return res.status(401).json({ message: "Credenciales incorrectas" });
     }
 
-    const [rows] = await pool.query(
-      "SELECT * FROM usuarios WHERE correo = ? AND contrasenia = ?",
-      [correo, contrasenia]
-    );
-
-    return res.json(rows[0]);
+    return res.status(200).json(result[0]);
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }

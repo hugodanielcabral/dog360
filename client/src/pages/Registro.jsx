@@ -122,7 +122,7 @@ export const Registro = () => {
               />
               <ErrorMessage name="contrasenia" component="div" className="text-red-500 text-sm mt-1" />
             </div>
-            <div className="flex flex-col"> {/* Nuevo div para separar los botones */}
+            <div className="flex flex-col"> 
               <button
                 type="submit"
                 disabled={isSubmitting}

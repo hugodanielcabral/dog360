@@ -25,3 +25,37 @@
 ## Documentación
 
 - [Documentación de React Router Dom](https://reactrouter.com/en/main)
+
+## Código MYSQL
+
+create database dogs360;
+use dogs360;
+
+CREATE TABLE razas (
+id INT AUTO_INCREMENT PRIMARY KEY,
+nombre VARCHAR(255) NOT NULL,
+descripcion VARCHAR(255),
+imagen VARCHAR(255),
+tamanio VARCHAR(50),
+esperanza_de_vida INT,
+personalidad VARCHAR(255)
+);
+
+CREATE TABLE usuarios (
+id INT PRIMARY KEY AUTO_INCREMENT,
+nombre VARCHAR(255),
+apellido VARCHAR(255),
+correo VARCHAR(255) UNIQUE,
+contrasenia VARCHAR(255),
+estado TINYINT(1),
+rol VARCHAR(50)
+);
+
+CREATE TABLE turnos (
+id INT PRIMARY KEY AUTO_INCREMENT,
+dia_de_turno DATE,
+nombre_de_mascota VARCHAR(255),
+descripcion TEXT,
+usuario_id INT,
+FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);
