@@ -1,6 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { signup } from "../api/users.api.js";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 export const Registro = () => {
@@ -49,7 +49,7 @@ export const Registro = () => {
   };
 
   return (
-    <div className="bg-white bg-opacity-70 rounded-lg shadow-lg max-w-md m-auto p-4 flex flex-col justify-center mt-28">
+    <div className="bg-white bg-opacity-70 rounded-lg shadow-lg max-w-md m-auto p-4 mt-28">
       <h2 className="text-3xl font-bold mb-4 text-slate-900">
         Registro de Usuario
       </h2>
@@ -122,13 +122,21 @@ export const Registro = () => {
               />
               <ErrorMessage name="contrasenia" component="div" className="text-red-500 text-sm mt-1" />
             </div>
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="bg-[#65451f] p-2 rounded-md mt-4 hover:opacity-80 m-auto text-sm focus:outline-none"
-            >
-              Enviar
-            </button>
+            <div className="flex flex-col"> {/* Nuevo div para separar los botones */}
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="bg-[#65451f] p-2 rounded-md mt-4 hover:opacity-80 m-auto text-sm focus:outline-none"
+              >
+                Crear Cuenta
+              </button>
+              <Link
+                to="/signin"
+                className="bg-[#65451f] p-2 rounded-md mt-2 hover:opacity-80 m-auto text-sm focus:outline-none"
+              >
+                Iniciar Sesión
+              </Link>
+            </div>
           </Form>
         )}
       </Formik>
