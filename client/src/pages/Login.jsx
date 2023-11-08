@@ -48,6 +48,7 @@ export const Login = () => {
             timer: 1500
           }).then(() => {
             localStorage.setItem('isLoggedIn', 'true')
+            localStorage.setItem('rol', response.data.rol)
             navigate('/')
           })
         }else {

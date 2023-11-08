@@ -6,13 +6,16 @@ import { NotFound } from './pages/NotFound'
 import { Registro } from './pages/Registro'
 import { Login } from './pages/Login'
 import { DogDetail } from './pages/DogDetail'
+import { PrivateRoute } from './components/PrivateRoute'
+
 
 export const App = () => {
+
   return (
     <DogContextProvider>
       <Routes>
         <Route path="/" element={<DogsPage />} />
-        <Route path="/new" element={<DogsForm />} />
+        <Route path="/new" element={<PrivateRoute element={<DogsForm />} />} />
         <Route path="/signup" element={<Registro />} />
         <Route path="/signin" element={<Login />} />
         <Route path="/dog/:id" element={<DogDetail />} />

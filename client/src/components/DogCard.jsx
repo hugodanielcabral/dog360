@@ -5,6 +5,8 @@ export const DogCard = ({ dog }) => {
   const { deleteDog } = useDogs();
   const navigate = useNavigate();
 
+  const rol = localStorage.getItem('rol');
+
   return (
     <div className="p-2 bg-[#BF9270] rounded shadow cursor-pointer">
       <img
@@ -16,14 +18,16 @@ export const DogCard = ({ dog }) => {
       <div className="flex items-center justify-center h-4 p-4">
         <h3 className="font-bold text-white ">{dog.nombre}</h3>
       </div>
-      <div className="flex items-center justify-center h-4 p-4">
-        <button
-          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-          onClick={() => deleteDog(dog.id)}
-        >
-          Eliminar
-        </button>
-      </div>
+        {rol === 'ADMIN' && (
+          <div className="flex items-center justify-center h-4 p-4">
+              <button
+              className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+              onClick={() => deleteDog(dog.id)}
+            >
+              Eliminar
+            </button>
+          </div>
+        )}
     </div>
   );
 }
