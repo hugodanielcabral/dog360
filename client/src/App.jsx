@@ -6,6 +6,7 @@ import { NotFound } from './pages/NotFound'
 import { Registro } from './pages/Registro'
 import { Login } from './pages/Login'
 import { DogDetail } from './pages/DogDetail'
+import { Turnos } from "./pages/Turnos"
 import { PrivateRoute } from './components/PrivateRoute'
 
 export const App = () => {
@@ -20,6 +21,7 @@ export const App = () => {
           element={ isLoggedIn ? <DogsPage/> : <Login/>}
         />
         <Route path="/new" element={<PrivateRoute element={<DogsForm />} />} />
+        <Route path='/turnos' element={<Turnos/>}/>
         <Route path="/signup" element={<Registro />} />
         <Route path="/signin" element={<Login />} />
         {/*         <Route path="/dog/:id" element={<DogDetail />} />
