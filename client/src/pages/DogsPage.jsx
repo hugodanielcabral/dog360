@@ -1,6 +1,7 @@
 import Header from '../components/Header'
 import DogsRendering from '../components/DogsRendering'
 import Footer from '../components/Footer'
+import { DogsForm } from './DogsForm'
 
 function DogsPage() {
   return (

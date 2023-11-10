@@ -12,7 +12,6 @@ import { MisTurnos } from './pages/MisTurnos'
 
 export function App() {
   const isLoggedIn = localStorage.getItem('isLoggedIn')
-  const navigate = useNavigate()
 
   return (
     <DogContextProvider>
