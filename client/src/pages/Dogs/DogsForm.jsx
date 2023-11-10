@@ -61,7 +61,7 @@ export const DogsForm = () => {
         {({ handleChange, handleSubmit, values, isSubmitting }) => (
           <Form
             onSubmit={handleSubmit}
-            className="max-w-3xl gap-6 px-2 m-auto my-20 sm:flex sm:justify-center"
+            className="max-w-3xl gap-6 px-2 m-auto sm:flex sm:justify-center"
           >
             <div className="flex flex-col flex-1">
               <label className="mt-2 text-sm font-bold opacity-90">

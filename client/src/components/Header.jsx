@@ -40,24 +40,19 @@ export const Header = () => {
           <label tabIndex={0} className="m-1 btn">
             Menu
           </label>
-          {localStorage.getItem('rol') === 'ADMIN' && (
-            <ul
-              tabIndex={0}
-              className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 flex"
-            >
-              <Link
-                to="/new"
-                className="px-4 py-2 font-bold text-white bg-purple-500 rounded hover:bg-purple-700"
-              >
-                Crear perrito
-              </Link>
-            </ul>
-          )}
           {localStorage.getItem('isLoggedIn') === 'true' ? (
             <ul
               tabIndex={0}
               className="dropdown-content z-[1] menu p-2 shadow rounded-box w-52 gap-y-2 bg-[#BF9270] text-center"
             >
+              {localStorage.getItem('rol') === 'ADMIN' && (
+                <Link
+                  to="/new"
+                  className="px-4 py-2 font-bold text-white bg-purple-500 rounded hover:bg-purple-700"
+                >
+                  Crear perrito
+                </Link>
+              )}
               <Link
                 to={'/turnos'}
                 className="px-4 py-2 font-bold text-white bg-purple-500 rounded hover:bg-purple-700"
