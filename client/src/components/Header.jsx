@@ -24,8 +24,8 @@ export const Header = () => {
 
   return (
     <header className="bg-[#BF9270] text-white px-4 py-4 mb-6">
-      <nav className="flex items-center m-auto justify-evenly">
-        <div className="flex items-center">
+      <nav className="flex flex-wrap items-center m-auto justify-evenly gap-y-2">
+        <div className="items-center hidden sm:flex">
           <Link to="/">
             <img src={dog} alt="dog360" width={90} />
           </Link>
@@ -38,7 +38,7 @@ export const Header = () => {
           type="text"
           placeholder="Buscar..."
         />
-        <div className="flex justify-end gap-4 ml-4">
+        <div className="flex flex-wrap justify-end gap-4 ml-4">
           {localStorage.getItem('rol') === 'ADMIN' && (
             <>
               <Link
