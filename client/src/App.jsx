@@ -5,13 +5,11 @@ import { DogsForm } from './pages/DogsForm'
 import { NotFound } from './pages/NotFound'
 import { Registro } from './pages/Registro'
 import { Login } from './pages/Login'
-import { DogDetail } from './pages/DogDetail'
 import { Turnos } from "./pages/Turnos"
 import { PrivateRoute } from './components/PrivateRoute'
 import { MisTurnos } from './pages/MisTurnos'
 export const App = () => {
   const isLoggedIn = localStorage.getItem('isLoggedIn')
-  const navigate = useNavigate()
 
   return (
     <DogContextProvider>

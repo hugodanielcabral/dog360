@@ -1,6 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom'
 import dog from '../images/dog.png'
 import Swal from 'sweetalert2'
+import 'animate.css';
+
 
 function Header({ title }) {
 const navigate = useNavigate()
@@ -24,10 +26,11 @@ const navigate = useNavigate()
   return (
     <header className="bg-[#BF9270] text-white px-4 py-4 mb-6">
       <nav className="flex items-center m-auto justify-evenly">
-        <div>
+        <div className='flex items-center'>
           <Link to="/">
-            <img src={dog} alt="" width={90} />
+            <img src={dog} alt="" width={90} className='animate__animated animate__bounce' />
           </Link>
+            <h1 className="text-3xl font-bold ml-4 animate__animated animate__backInDown">Dog360</h1>
         </div>
         <input
           className="w-[500px] p-2 rounded-md"
