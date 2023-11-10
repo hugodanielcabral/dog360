@@ -29,28 +29,35 @@ export const Header = () => {
           <Link to="/">
             <img src={dog} alt="dog360" width={90} />
           </Link>
-          <h1 className="ml-4 text-3xl font-bold animate__animated animate__backInDown">
-            Dog360
-          </h1>
+          <h1 className="ml-4 text-3xl font-bold">Dog360</h1>
         </div>
         <input
           className="w-[500px] p-2 rounded-md"
           type="text"
           placeholder="Buscar..."
         />
-        <div className="flex flex-wrap justify-end gap-4 ml-4">
+        <div className="dropdown dropdown-end">
+          <label tabIndex={0} className="m-1 btn">
+            Menu
+          </label>
           {localStorage.getItem('rol') === 'ADMIN' && (
-            <>
+            <ul
+              tabIndex={0}
+              className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 flex"
+            >
               <Link
                 to="/new"
                 className="px-4 py-2 font-bold text-white bg-purple-500 rounded hover:bg-purple-700"
               >
                 Crear perrito
               </Link>
-            </>
+            </ul>
           )}
           {localStorage.getItem('isLoggedIn') === 'true' ? (
-            <>
+            <ul
+              tabIndex={0}
+              className="dropdown-content z-[1] menu p-2 shadow rounded-box w-52 gap-y-2 bg-[#BF9270] text-center"
+            >
               <Link
                 to={'/turnos'}
                 className="px-4 py-2 font-bold text-white bg-purple-500 rounded hover:bg-purple-700"
@@ -71,7 +78,7 @@ export const Header = () => {
               >
                 Sign out
               </button>
-            </>
+            </ul>
           ) : (
             <>
               <Link to="/signin">Login</Link>
