@@ -1,8 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom'
 import dog from '../images/dog.png'
 import Swal from 'sweetalert2'
-import 'animate.css';
-
+import 'animate.css'
 
 export const Header = () => {
   const navigate = useNavigate()
@@ -26,11 +25,13 @@ export const Header = () => {
   return (
     <header className="bg-[#BF9270] text-white px-4 py-4 mb-6">
       <nav className="flex items-center m-auto justify-evenly">
-        <div className='flex items-center'>
+        <div className="flex items-center">
           <Link to="/">
             <img src={dog} alt="dog360" width={90} />
           </Link>
-            <h1 className="text-3xl font-bold ml-4 animate__animated animate__backInDown">Dog360</h1>
+          <h1 className="ml-4 text-3xl font-bold animate__animated animate__backInDown">
+            Dog360
+          </h1>
         </div>
         <input
           className="w-[500px] p-2 rounded-md"
@@ -42,7 +43,7 @@ export const Header = () => {
             <>
               <Link
                 to="/new"
-                className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+                className="px-4 py-2 font-bold text-white bg-purple-500 rounded hover:bg-purple-700"
               >
                 Crear perrito
               </Link>
@@ -52,7 +53,7 @@ export const Header = () => {
             <>
               <Link
                 to={'/turnos'}
-                className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+                className="px-4 py-2 font-bold text-white bg-purple-500 rounded hover:bg-purple-700"
               >
                 Solicitar turno
               </Link>
@@ -66,7 +67,7 @@ export const Header = () => {
               </Link>
               <button
                 onClick={handleSignOut}
-                className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                className="px-4 py-2 font-bold text-white bg-red-500 rounded hover:bg-red-700"
               >
                 Sign out
               </button>
