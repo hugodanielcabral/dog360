@@ -2,14 +2,13 @@ import { pool } from "../db.js";
 
 export const getTurno = async (req, res) => {
   try {
-    const [result] = await pool.query("SELECT * FROM turnos WHERE id = ?", [
-      req.params.id,
-    ]);
-
+    const [result] = await pool.query(
+      "SELECT * FROM turnos WHERE usuario_id = ?",
+      [req.params.id]
+    );
     if (result.length === 0)
-      res.status(404).json({ message: "Turno no encontrado" });
-
-    res.json(result[0]);
+      return res.status(404).json({ message: "Turno no encontrado" });
+    return res.json(result);
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }

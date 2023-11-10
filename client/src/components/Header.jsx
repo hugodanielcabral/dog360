@@ -45,6 +45,7 @@ const navigate = useNavigate()
           {localStorage.getItem('isLoggedIn') === 'true' ? (
             <>
               <Link to={'/turnos'} className='bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded'>Solicitar turno</Link>
+              <Link to={"/mis-turnos"} className={"bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"}>Mis turnos</Link>
               <button onClick={handleSignOut} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Sign out</button>
             </>
           ) : (

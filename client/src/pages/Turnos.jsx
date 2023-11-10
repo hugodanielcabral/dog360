@@ -1,13 +1,15 @@
 import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { useNavigate } from 'react-router-dom';
+import { createTurnoRequest } from '../api/turnos.api';
 import * as Yup from 'yup';
 import moment from 'moment';
-import jsPDF from 'jspdf';
-import { createTurnoRequest } from '../api/turnos.api';
+import Swal from 'sweetalert2';
 
 
 
 export const Turnos = () => {
   const usuario_id = parseInt(localStorage.getItem('usuario_id'));
+  const navigate = useNavigate();
 
   const validationSchema = Yup.object().shape({
     dia: Yup.date()
@@ -37,22 +39,22 @@ export const Turnos = () => {
       onSubmit={ async (values, actions) => {
         const response = await createTurnoRequest(values)
 
-        const doc = new jsPDF('p', 'pt', 'a5');
-        doc.setFontSize(22);
-        
-        doc.setTextColor(255, 0, 0);
-        doc.text('Dog360', 10, 30); 
-        doc.setDrawColor(255, 0, 0);
-        doc.line(10, 35, 200, 35); 
-        
-        doc.setTextColor(0, 0, 0);
-        doc.setFontSize(12); 
-        doc.text(`Día del turno: ${values.dia}`, 10, 70);
-        doc.text(`Hora del turno: ${values.hora}`, 10, 100);
-        doc.text(`Nombre de la mascota: ${values.mascota}`, 10, 130);
-        doc.text(`Descripción: ${values.descripcion}`, 10, 160);
-        doc.save('turno_dog360.pdf');
-
+        if (response.status === 200) {
+          Swal.fire({
+            icon: 'success',
+            title: 'Turno creado',
+            text: 'Turno creado correctamente',
+          }).then(() => {
+            
+            navigate('/mis-turnos');
+          });
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Error al crear el turno',
+          });
+        }
         actions.resetForm();
       }}
     >

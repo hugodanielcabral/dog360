@@ -8,7 +8,7 @@ import { Login } from './pages/Login'
 import { DogDetail } from './pages/DogDetail'
 import { Turnos } from "./pages/Turnos"
 import { PrivateRoute } from './components/PrivateRoute'
-
+import { MisTurnos } from './pages/MisTurnos'
 export const App = () => {
   const isLoggedIn = localStorage.getItem('isLoggedIn')
   const navigate = useNavigate()
@@ -22,6 +22,7 @@ export const App = () => {
         />
         <Route path="/new" element={<PrivateRoute element={<DogsForm />} />} />
         <Route path='/turnos' element={<Turnos/>}/>
+        <Route path='/mis-turnos' element={<MisTurnos/>}></Route>
         <Route path="/signup" element={<Registro />} />
         <Route path="/signin" element={<Login />} />
         {/*         <Route path="/dog/:id" element={<DogDetail />} />
