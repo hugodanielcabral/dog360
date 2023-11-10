@@ -6,6 +6,8 @@ export const DogCard = ({ dog }) => {
   const { deleteDog } = useDogs();
   const navigate = useNavigate();
 
+  const rol = localStorage.getItem('rol');
+
   const showDogDetails = () => {
     Swal.fire({
       html: `
@@ -19,8 +21,8 @@ export const DogCard = ({ dog }) => {
             <p><strong>Esperanza de vida:</strong> ${dog.esperanza_de_vida}</p>
           </div>
         </div>`,
-      showConfirmButton: true,
-      showCancelButton: true,
+      showConfirmButton: rol === 'ADMIN',
+      showCancelButton: rol === 'ADMIN',
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Editar',
