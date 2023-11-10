@@ -1,33 +1,32 @@
 import { Formik, Form } from 'formik'
 import { Link, useParams } from 'react-router-dom'
-import { useDogs } from '../context/DogContext'
+import { useDogs } from '../../context/DogContext'
 import './module.DogsForm.css'
 import { useEffect } from 'react'
 import Swal from 'sweetalert2'
+import { MainLayout } from '../../layout/MainLayout'
 
 export const DogsForm = () => {
-  const { loadDogs,createDog, updateDog, dogs } = useDogs()
+  const { loadDogs, createDog, updateDog, dogs } = useDogs()
 
   const { id } = useParams()
   const dog = dogs.find((dog) => dog.id == id)
 
-  if(id){
+  if (id) {
     useEffect(() => {
-      loadDogs();
-    }, [id]);
+      loadDogs()
+    }, [id])
   }
 
-
-  //* Si recargamos la pagina, se crasheaba debido a que dog no tenia 
+  //* Si recargamos la pagina, se crasheaba debido a que dog no tenia
   //* los datos, la solucion fue agregar el useEffect y que este se
   //* ejecute cada vez que cambia el id y ademas poner el if de abajo
   if (!dog && id) {
-    return <div>Loading or not found...</div>;
+    return <div>Loading or not found...</div>
   }
-  
+
   return (
-    <div className="">
-      <Link to="/">Home</Link>
+    <MainLayout>
       <Formik
         initialValues={{
           nombre: dog?.nombre || '',
@@ -38,20 +37,22 @@ export const DogsForm = () => {
           esperanza_de_vida: dog?.esperanza_de_vida || '',
         }}
         onSubmit={async (values, actions) => {
-          if (id){
+          if (id) {
             const result = await updateDog(parseInt(id), values)
-            result.status === 200 ? Swal.fire({
-              icon: 'success',
-              title: 'Raza actualizada',
-              showConfirmButton: false,
-              timer: 1500 
-            }) : Swal.fire({
-              icon: 'error',
-              title: 'Error',
-              showConfirmButton: false,
-              timer: 1500 
-            })
-          }else {
+            result.status === 200
+              ? Swal.fire({
+                  icon: 'success',
+                  title: 'Raza actualizada',
+                  showConfirmButton: false,
+                  timer: 1500,
+                })
+              : Swal.fire({
+                  icon: 'error',
+                  title: 'Error',
+                  showConfirmButton: false,
+                  timer: 1500,
+                })
+          } else {
             createDog(values)
             actions.resetForm()
           }
@@ -145,6 +146,6 @@ export const DogsForm = () => {
           </Form>
         )}
       </Formik>
-    </div>
+    </MainLayout>
   )
 }

@@ -1,14 +1,14 @@
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import { DogContextProvider } from './context/DogContext'
-import DogsPage from './pages/DogsPage'
-import { DogsForm } from './pages/DogsForm'
+import DogsPage from './pages/Dogs/DogsPage'
+import { DogsForm } from './pages/Dogs/DogsForm'
 import { NotFound } from './pages/NotFound'
 import { Registro } from './pages/Registro'
 import { Login } from './pages/Login'
-import { DogDetail } from './pages/DogDetail'
-import { Turnos } from './pages/Turnos'
+import { DogDetail } from './pages/Dogs/DogDetail'
+import { NewTurno } from './pages/Turnos/NewTurno'
+import { TurnosDetail } from './pages/Turnos/TurnosDetail'
 import { PrivateRoute } from './context/PrivateRoute'
-import { MisTurnos } from './pages/MisTurnos'
 
 export function App() {
   const isLoggedIn = localStorage.getItem('isLoggedIn')
@@ -18,8 +18,8 @@ export function App() {
       <Routes>
         <Route path="/" element={isLoggedIn ? <DogsPage /> : <Login />} />
         <Route path="/new" element={<PrivateRoute element={<DogsForm />} />} />
-        <Route path="/turnos" element={<Turnos />} />
-        <Route path="/mis-turnos" element={<MisTurnos />}></Route>
+        <Route path="/turnos" element={<NewTurno />} />
+        <Route path="/mis-turnos" element={<TurnosDetail />}></Route>
         <Route path="/signup" element={<Registro />} />
         <Route path="/signin" element={<Login />} />
         {/*         <Route path="/dog/:id" element={<DogDetail />} />

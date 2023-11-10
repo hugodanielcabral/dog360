@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { useDogs } from '../context/DogContext.jsx'
+import { useDogs } from '../../context/DogContext.jsx'
 
 export function DogDetail() {
   const { id } = useParams()
@@ -9,7 +9,7 @@ export function DogDetail() {
 
   useEffect(() => {
     loadDog(id)
-  }, [ id ])
+  }, [id])
 
   return (
     <div className="max-w-md mx-auto p-4 bg-white rounded-lg shadow-lg">

@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
-import { getTurnoRequest, deleteTurnoRequest } from '../api/turnos.api'
+import { getTurnoRequest, deleteTurnoRequest } from '../../api/turnos.api'
 import jsPDF from 'jspdf'
 import moment from 'moment'
-import dog from '../images/dog.png'
+import dog from '../../images/dog.png'
 import Swal from 'sweetalert2'
+import { MainLayout } from '../../layout/MainLayout'
 
-export const MisTurnos = () => {
+export const TurnosDetail = () => {
   const [turnos, setTurnos] = useState([])
 
   useEffect(() => {
@@ -77,7 +78,7 @@ export const MisTurnos = () => {
   }
 
   return (
-    <>
+    <MainLayout>
       <h1 className="mb-4 text-2xl font-bold">Mis turnos</h1>
       <div className="flex flex-wrap justify-center">
         {turnos.length === 0 ? (
@@ -113,6 +114,6 @@ export const MisTurnos = () => {
           ))
         )}
       </div>
-    </>
+    </MainLayout>
   )
 }
