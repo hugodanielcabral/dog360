@@ -1,9 +1,14 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
+import { HeaderMenu } from './HeaderMenu'
+import { Searcher } from './Searcher'
 import dog from '../images/dog.png'
 import 'animate.css'
-import { HeaderMenu } from './HeaderMenu'
+
 
 export const Header = () => {
+  const location = useLocation()
+  console.log(location.pathname);
+
   return (
     <header className="bg-[#BF9270] text-white px-4 py-4 mb-6">
       <nav className="flex flex-wrap items-center m-auto justify-evenly gap-y-2">
@@ -13,11 +18,7 @@ export const Header = () => {
           </Link>
           <h1 className="ml-4 text-3xl font-bold">Dog360</h1>
         </div>
-        <input
-          className="w-[500px] p-2 rounded-md"
-          type="text"
-          placeholder="Buscar..."
-        />
+         {location.pathname === '/' && <Searcher />}
         <HeaderMenu />
       </nav>
     </header>
