@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { HeaderMenu } from './HeaderMenu'
 import dog from '../images/dog.png'
-import 'animate.css'
 
 export const Header = () => {
   return (

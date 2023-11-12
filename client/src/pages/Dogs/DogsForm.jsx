@@ -61,18 +61,16 @@ export const DogsForm = () => {
         {({ handleChange, handleSubmit, values, isSubmitting }) => (
           <Form
             onSubmit={handleSubmit}
-            className="max-w-3xl gap-6 px-2 m-auto sm:flex sm:justify-center"
+            className="gap-6 p-4 text-black bg-white rounded sm:flex sm:justify-center"
           >
             <div className="flex flex-col flex-1">
-              <label className="mt-2 text-sm font-bold opacity-90">
-                Nombre
-              </label>
+              <label className="text-sm font-bold opacity-90">Nombre</label>
               <input
                 type="text"
                 name="nombre"
                 onChange={handleChange}
                 value={values.nombre}
-                className="p-2 rounded"
+                className="p-2 text-white rounded"
               />
               <label className="mt-2 text-sm font-bold opacity-90">
                 Imagen
@@ -82,7 +80,7 @@ export const DogsForm = () => {
                 name="imagen"
                 onChange={handleChange}
                 value={values.imagen}
-                className="p-2 rounded"
+                className="p-2 text-white rounded"
               />
               <label className="mt-2 text-sm font-bold opacity-90">
                 Descripción
@@ -93,26 +91,24 @@ export const DogsForm = () => {
                 placeholder=""
                 onChange={handleChange}
                 value={values.descripcion}
-                className="p-2 rounded"
+                className="p-2 text-white rounded"
               />
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-[#65451f] mt-4 m-auto py-2 px-4 rounded hover:bg-opacity-90 w-full"
+                className="bg-[#65451f] mt-4 m-auto py-2 px-4 rounded hover:bg-opacity-90 w-full text-white"
               >
                 {isSubmitting ? 'Limpiando...' : 'Reset'}
               </button>
             </div>
             <div className="flex flex-col flex-1">
-              <label className="mt-2 text-sm font-bold opacity-90">
-                Tamaño
-              </label>
+              <label className="text-sm font-bold opacity-90">Tamaño</label>
               <input
                 type="text"
                 name="tamanio"
                 onChange={handleChange}
                 value={values.tamanio}
-                className="p-2 rounded"
+                className="p-2 text-white rounded"
               />
               <label className="mt-2 text-sm font-bold opacity-90">
                 Esperanza de vida (años)
@@ -122,7 +118,7 @@ export const DogsForm = () => {
                 name="esperanza_de_vida"
                 onChange={handleChange}
                 value={values.esperanza_de_vida}
-                className="p-2 rounded"
+                className="p-2 text-white rounded"
               />
               <label className="mt-2 text-sm font-bold opacity-90">
                 Personalidad
@@ -133,12 +129,12 @@ export const DogsForm = () => {
                 placeholder=""
                 onChange={handleChange}
                 value={values.personalidad}
-                className="p-2 rounded"
+                className="p-2 text-white rounded"
               />
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-[#65451f] mt-4 m-auto py-2 px-4 rounded hover:bg-opacity-90 w-full"
+                className="bg-[#65451f] mt-4 m-auto py-2 px-4 rounded hover:bg-opacity-90 w-full text-white"
               >
                 {isSubmitting ? 'Guardando...' : 'Guardar'}
               </button>

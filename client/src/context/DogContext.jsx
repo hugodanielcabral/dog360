@@ -1,7 +1,12 @@
-import { createContext, useContext, useState } from "react";
-import { getDogsRequest, getDogRequest, createDogRequest, updateDogRequest, deleteDogRequest } from "../api/dogs.api"
-import { Toast } from "../libs/sweetalert.js";
-
+import { createContext, useContext, useState } from 'react'
+import {
+  getDogsRequest,
+  getDogRequest,
+  createDogRequest,
+  updateDogRequest,
+  deleteDogRequest,
+} from '../api/dogs.api'
+import { Toast } from '../libs/sweetalert.js'
 
 export const DogContext = createContext()
 
@@ -20,13 +25,12 @@ export const DogContextProvider = ({ children }) => {
 
   const loadDogs = async () => {
     try {
-      const response = await getDogsRequest();
-      setDogs(response.data);
+      const response = await getDogsRequest()
+      setDogs(response.data)
     } catch (error) {
-      console.error(error);
+      console.error(error)
     }
   }
-  
 
   const loadDog = async (id) => {
     try {
@@ -37,44 +41,44 @@ export const DogContextProvider = ({ children }) => {
     }
   }
 
-      const createDog = async (dog) => {
-        try {
-            const response = await createDogRequest(dog)
-            setDogs([...dogs, response.data])
-            Toast.fire({
-              icon: 'success',
-              title: 'Perro creado',
-            })
-          } catch (error) {
-            console.log(error)
-          }
-      }
+  const createDog = async (dog) => {
+    try {
+      const response = await createDogRequest(dog)
+      setDogs([...dogs, response.data])
+      Toast.fire({
+        icon: 'success',
+        title: 'Perro creado',
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
-      const deleteDog = async (id) => {
-        try {
-          await deleteDogRequest(id)
-          setDogs(dogs.filter(dog => dog.id !== id))
-          Toast.fire({
-            icon: 'success',
-            title: 'Perro eliminado',
-          })
-        } catch (error) {
-          console.error(error)
-        }
-      }
+  const deleteDog = async (id) => {
+    try {
+      await deleteDogRequest(id)
+      setDogs(dogs.filter((dog) => dog.id !== id))
+      Toast.fire({
+        icon: 'success',
+        title: 'Perro eliminado',
+      })
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
-      const updateDog = async (id, dog) => {
-        try {
-          const response =await updateDogRequest(id, dog);
-          return response
-        } catch (error) {
-          console.error(error);
-        }
-      }
+  const updateDog = async (id, dog) => {
+    try {
+      const response = await updateDogRequest(id, dog)
+      return response
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   return (
     <DogContext.Provider
-      value={{ dogs, loadDogs, loadDog, createDog, updateDog,deleteDog }}
+      value={{ dogs, loadDogs, loadDog, createDog, updateDog, deleteDog }}
     >
       {children}
     </DogContext.Provider>
