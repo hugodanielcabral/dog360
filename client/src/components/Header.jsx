@@ -1,14 +1,12 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { HeaderMenu } from './HeaderMenu'
 import dog from '../images/dog.png'
 import 'animate.css'
 
 export const Header = () => {
-  const location = useLocation()
-
   return (
-    <header className="bg-[#BF9270] text-white px-4 py-4 mb-6">
-      <nav className="flex flex-wrap items-center justify-between m-auto sm:justify-evenly gap-y-2">
+    <header className="bg-[#BF9270] text-white sm:px-0 px-4 py-4 mb-6">
+      <nav className="flex items-center justify-between sm:justify-around gap-y-2">
         <div className="items-center hidden sm:flex">
           <Link to="/">
             <img
