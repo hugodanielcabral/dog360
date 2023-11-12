@@ -1,18 +1,18 @@
-import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa6";
+import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa6'
 
 export const Footer = () => {
   return (
     <footer className="bg-[#BF9270] text-white mt-8 py-12 px-4 border-t border-solid border-[#65451F]">
-      <div className="flex flex-col md:flex-row items-center justify-evenly">
+      <div className="flex flex-col items-center md:flex-row justify-evenly">
         <ul className="flex gap-4 mb-4 md:mb-0">
           <li>
             <a
               href="https://www.facebook.com/dog360"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-3xl text-[#ffffff] hover:text-[#65451F]"
+              className="text-3xl text-[#ffffff] hover:text-[#65451F] duration-150"
             >
-              <FaFacebook/>
+              <FaFacebook />
             </a>
           </li>
           <li>
@@ -20,9 +20,9 @@ export const Footer = () => {
               href="https://www.instagram.com/dog360/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-3xl text-[#ffffff] hover:text-[#65451F]"
+              className="text-3xl text-[#ffffff] hover:text-[#65451F] duration-150"
             >
-              <FaInstagram/>
+              <FaInstagram />
             </a>
           </li>
           <li>
@@ -30,7 +30,7 @@ export const Footer = () => {
               href="https://twitter.com/dog360"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-3xl text-[#ffffff] hover:text-[#65451F]"
+              className="text-3xl text-[#ffffff] hover:text-[#65451F] duration-150"
             >
               <FaTwitter />
             </a>
@@ -45,7 +45,7 @@ export const Footer = () => {
               href="/notfound"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#ffffff] hover:text-[#65451F] text-xl"
+              className="text-[#ffffff] hover:text-[#65451F] text-xl duration-150"
             >
               Aviso de privacidad
             </a>
@@ -55,7 +55,7 @@ export const Footer = () => {
               href="/notfound"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#ffffff] hover:text-[#65451F] text-xl"
+              className="text-[#ffffff] hover:text-[#65451F] text-xl duration-150"
             >
               Términos y condiciones
             </a>

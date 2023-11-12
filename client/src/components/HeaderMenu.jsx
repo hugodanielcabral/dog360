@@ -24,7 +24,7 @@ export const HeaderMenu = () => {
 
   return (
     <div className="dropdown dropdown-end">
-      <label tabIndex={0} className="m-1 btn btn-ghost">
+      <label tabIndex={0} className="btn btn-ghost">
         <HiOutlineMenuAlt3 size={30} color="white" />
       </label>
       {localStorage.getItem('isLoggedIn') === 'true' ? (

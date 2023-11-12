@@ -94,20 +94,20 @@ export const Login = () => {
                 className="text-sm text-red-500"
               />
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col gap-2 mt-12">
               <button
                 type="submit"
-                className="bg-[#65451f] p-2 rounded-md mt-4 hover:opacity-80 m-auto text-sm focus:outline-none"
+                className="py-2 font-bold rounded-md bg-[#e3b7a0] focus:outline-none hover:shadow duration-100 hover:opacity-80 text-slate-900"
                 disabled={isSubmitting}
               >
                 Ingresar
               </button>
-              <Link
-                to="/signup"
-                className="bg-[#65451f] p-2 rounded-md mt-2 hover:opacity-80 m-auto text-sm focus:outline-none"
-              >
-                Crear Cuenta
-              </Link>
+              <div className="text-center text-slate-900">
+                <span>OR</span>
+              </div>
+              <button className="py-2 font-bold rounded-md bg-[#e3b7a0] focus:outline-none hover:shadow duration-100 hover:opacity-80 text-slate-900">
+                <Link to="/signup">Crear Cuenta</Link>
+              </button>
             </div>
           </Form>
         )}
