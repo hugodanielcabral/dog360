@@ -65,10 +65,10 @@ export const NewTurno = () => {
           }}
         >
           {({ isSubmitting }) => (
-            <Form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <Form className="px-8 pt-6 pb-8 mb-4 bg-white rounded shadow-md">
               <div className="mb-4">
                 <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
+                  className="block mb-2 text-sm font-bold text-gray-700"
                   htmlFor="dia"
                 >
                   Día del turno
@@ -76,13 +76,17 @@ export const NewTurno = () => {
                 <Field
                   type="date"
                   name="dia"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline"
+                  className="w-full px-3 py-2 leading-tight text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                 />
-                <ErrorMessage name="dia" component="div" />
+                <ErrorMessage
+                  name="dia"
+                  component="div"
+                  className="text-red-500"
+                />
               </div>
               <div className="mb-4">
                 <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
+                  className="block mb-2 text-sm font-bold text-gray-700"
                   htmlFor="hora"
                 >
                   Hora del turno
@@ -90,7 +94,7 @@ export const NewTurno = () => {
                 <Field
                   as="select"
                   name="hora"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                 >
                   <optgroup label="Mañana">
                     <option value="9:00">9:00</option>
@@ -105,11 +109,15 @@ export const NewTurno = () => {
                     <option value="21:00">21:00</option>
                   </optgroup>
                 </Field>
-                <ErrorMessage name="hora" component="div" />
+                <ErrorMessage
+                  name="hora"
+                  component="div"
+                  className="text-red-500"
+                />
               </div>
               <div className="mb-4">
                 <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
+                  className="block mb-2 text-sm font-bold text-gray-700"
                   htmlFor="mascota"
                 >
                   Nombre de la mascota
@@ -117,7 +125,7 @@ export const NewTurno = () => {
                 <Field
                   type="text"
                   name="mascota"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline"
+                  className="w-full px-3 py-2 leading-tight text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                 />
                 <ErrorMessage
                   name="mascota"
@@ -127,7 +135,7 @@ export const NewTurno = () => {
               </div>
               <div className="mb-6">
                 <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
+                  className="block mb-2 text-sm font-bold text-gray-700"
                   htmlFor="descripcion"
                 >
                   Descripción
@@ -135,7 +143,7 @@ export const NewTurno = () => {
                 <Field
                   type="text"
                   name="descripcion"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline"
+                  className="w-full px-3 py-2 leading-tight text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                 />
                 <ErrorMessage
                   name="descripcion"
@@ -147,7 +155,7 @@ export const NewTurno = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline"
                 >
                   Enviar
                 </button>

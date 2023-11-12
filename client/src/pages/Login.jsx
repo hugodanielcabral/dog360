@@ -29,7 +29,7 @@ export const Login = () => {
   }
 
   return (
-    <div className="flex flex-col justify-center max-w-md p-4 m-auto bg-white rounded-lg shadow-lg bg-opacity-70 mt-28">
+    <div className="flex flex-col justify-center max-w-md p-4 m-auto mt-24 bg-white rounded-lg shadow-lg bg-opacity-70">
       <h2 className="mb-4 text-3xl font-bold text-slate-900">
         Inicio de Usuario
       </h2>
@@ -94,7 +94,7 @@ export const Login = () => {
                 className="text-sm text-red-500"
               />
             </div>
-            <div className="flex flex-col gap-2 mt-12">
+            <div className="flex flex-col gap-2 mt-6">
               <button
                 type="submit"
                 className="py-2 font-bold rounded-md bg-[#e3b7a0] focus:outline-none hover:shadow duration-100 hover:opacity-80 text-slate-900"
