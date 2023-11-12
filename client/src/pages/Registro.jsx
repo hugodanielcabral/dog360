@@ -2,6 +2,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik'
 import { signup } from '../api/users.api.js'
 import { useNavigate, Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
+import dog from '../images/dog.png'
 
 export const Registro = () => {
   const navigate = useNavigate()
@@ -50,9 +51,12 @@ export const Registro = () => {
 
   return (
     <div className="max-w-md p-4 m-auto mt-12 bg-white rounded-lg shadow-lg bg-opacity-70">
-      <h2 className="mb-4 text-3xl font-bold text-slate-900">
-        Registro de Usuario
-      </h2>
+      <div className="flex items-center justify-between ">
+        <h2 className="text-3xl font-bold text-slate-900">
+          Registro de Usuario
+        </h2>
+        <img src={dog} alt="dog360" width={90} />
+      </div>
       <Formik
         initialValues={{
           nombre: '',
@@ -99,7 +103,7 @@ export const Registro = () => {
                 className="mt-1 text-sm text-red-500"
               />
 
-              <label className="block mt-2 text-slate-900 opacity-90">
+              <label className="block text-slate-900 opacity-90">
                 Apellido:
               </label>
               <Field
@@ -114,9 +118,7 @@ export const Registro = () => {
                 className="mt-1 text-sm text-red-500"
               />
 
-              <label className="block mt-2 text-slate-900 opacity-90">
-                Correo:
-              </label>
+              <label className="block text-slate-900 opacity-90">Correo:</label>
               <Field
                 type="email"
                 name="correo"
@@ -129,7 +131,7 @@ export const Registro = () => {
                 className="mt-1 text-sm text-red-500"
               />
 
-              <label className="block mt-2 text-slate-900 opacity-90">
+              <label className="block text-slate-900 opacity-90">
                 Contraseña:
               </label>
               <Field

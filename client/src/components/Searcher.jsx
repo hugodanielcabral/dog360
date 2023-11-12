@@ -1,27 +1,28 @@
-import { useDogs } from "../context/DogContext"
-import Swal from "sweetalert2"
-
+import { useDogs } from '../context/DogContext'
+import Swal from 'sweetalert2'
+import { SearcherButton } from './SearcherButton'
 
 export const Searcher = () => {
+  const { dogs, loadDogs } = useDogs()
 
-    const { dogs, loadDogs } = useDogs()
+  const handleSearch = () => {
+    Swal.fire({
+      title: 'Escriba el nombre del perro',
+      input: 'text',
+      inputAttributes: {
+        autocapitalize: 'off',
+      },
+      showCancelButton: true,
+      confirmButtonText: 'Buscar',
+      showLoaderOnConfirm: true,
+      preConfirm: (name) => {
+        const dogFound = dogs.find(
+          (dog) => dog.nombre.toLowerCase().trim() === name.toLowerCase().trim()
+        )
 
-    const handleSearch = () => {
-       Swal.fire({
-        title: 'Escriba el nombre del perro',
-        input: 'text',
-        inputAttributes: {
-          autocapitalize: 'off'
-        },
-        showCancelButton: true,
-        confirmButtonText: 'Buscar',
-        showLoaderOnConfirm: true,
-        preConfirm: (name) => {
-         const dogFound = dogs.find((dog) => dog.nombre.toLowerCase().trim() === name.toLowerCase().trim())
-        
-         if(dogFound){
-            Swal.fire({
-                html: `
+        if (dogFound) {
+          Swal.fire({
+            html: `
                   <div style="position: relative;">
                     <img src="${dogFound.imagen}" class="w-full h-[600px] object-cover" alt="Custom image">
                     <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: rgba(0, 0, 0, 0.7); color: white;">
@@ -32,21 +33,17 @@ export const Searcher = () => {
                       <p><strong>Esperanza de vida:</strong> ${dogFound.esperanza_de_vida}</p>
                     </div>
                   </div>`,
-                showConfirmButton: true,
-                customClass: {
-                  actions: 'flex space-x-4 mt-4',
-                },
-              })
-         }else{
-            Swal.showValidationMessage(`No se encontro el perro ${name}`)
-         }
-        },
-        allowOutsideClick: () => !Swal.isLoading()
-      })
-    }
-  return (
-    <>
-        <button className="px-4 py-2 font-bold text-white duration-200 bg-purple-500 rounded hover:bg-purple-700" onClick={handleSearch}>Buscar</button>
-    </>
-  )
+            showConfirmButton: true,
+            customClass: {
+              actions: 'flex space-x-4 mt-4',
+            },
+          })
+        } else {
+          Swal.showValidationMessage(`No se encontro el perro ${name}`)
+        }
+      },
+      allowOutsideClick: () => !Swal.isLoading(),
+    })
+  }
+  return <SearcherButton handleSearch={handleSearch} />
 }

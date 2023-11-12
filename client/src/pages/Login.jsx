@@ -2,6 +2,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik'
 import { signin } from '../api/users.api.js'
 import { useNavigate, Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
+import dog from '../images/dog.png'
 
 export const Login = () => {
   const navigate = useNavigate()
@@ -30,9 +31,10 @@ export const Login = () => {
 
   return (
     <div className="flex flex-col justify-center max-w-md p-4 m-auto mt-24 bg-white rounded-lg shadow-lg bg-opacity-70">
-      <h2 className="mb-4 text-3xl font-bold text-slate-900">
-        Inicio de Usuario
-      </h2>
+      <div className="flex items-center justify-between ">
+        <h2 className="text-3xl font-bold text-slate-900">Inicio de Usuario</h2>
+        <img src={dog} alt="dog360" width={90} />
+      </div>
       <Formik
         initialValues={{
           correo: '',
@@ -58,7 +60,6 @@ export const Login = () => {
               title: 'Oops...',
               text: 'Credenciales incorrectas',
             })
-            actions.resetForm()
           }
         }}
       >

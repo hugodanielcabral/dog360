@@ -5,7 +5,6 @@ import 'animate.css'
 
 export const Header = () => {
   const location = useLocation()
-  console.log(location.pathname)
 
   return (
     <header className="bg-[#BF9270] text-white px-4 py-4 mb-6">
