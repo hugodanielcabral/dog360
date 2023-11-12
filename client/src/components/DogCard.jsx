@@ -5,7 +5,6 @@ import Swal from 'sweetalert2';
 export const DogCard = ({ dog }) => {
   const { deleteDog } = useDogs();
   const navigate = useNavigate();
-  console.log('dog', dog);
   const rol = localStorage.getItem('rol');
 
   const showDogDetails = () => {

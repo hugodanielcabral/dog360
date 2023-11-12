@@ -18,7 +18,6 @@ export const Header = () => {
           </Link>
           <h1 className="ml-4 text-3xl font-bold">Dog360</h1>
         </div>
-         {location.pathname === '/' && <Searcher />}
         <HeaderMenu />
       </nav>
     </header>

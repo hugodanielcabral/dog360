@@ -8,7 +8,11 @@ export const getTurno = async (req, res) => {
     );
     if (result.length === 0)
       return res.status(404).json({ message: "Turno no encontrado" });
-    return res.json(result);
+
+    const userInfo = await pool.query("SELECT * FROM usuarios WHERE id = ?", [
+      req.params.id,
+    ]);
+    return res.json({ turnos: result, userInfo: userInfo[0] });
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }

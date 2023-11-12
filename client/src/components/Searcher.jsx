@@ -46,7 +46,7 @@ export const Searcher = () => {
     }
   return (
     <>
-        <button className="btn btn-primary w-80" onClick={handleSearch}>Buscar</button>
+        <button className="px-4 py-2 font-bold text-white duration-200 bg-purple-500 rounded hover:bg-purple-700" onClick={handleSearch}>Buscar</button>
     </>
   )
 }

@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import { HiOutlineMenuAlt3 } from 'react-icons/hi'
+import { Searcher } from './Searcher'
 
 export const HeaderMenu = () => {
   const navigate = useNavigate()
@@ -39,6 +40,7 @@ export const HeaderMenu = () => {
               Crear perrito
             </Link>
           )}
+          <Searcher />
           <Link
             to={'/turnos'}
             className="px-4 py-2 font-bold text-white duration-200 bg-purple-500 rounded hover:bg-purple-700"

@@ -1,21 +1,26 @@
 import { useState, useEffect } from 'react'
 import { getTurnoRequest, deleteTurnoRequest } from '../../api/turnos.api'
+import { MainLayout } from '../../layout/MainLayout'
 import jsPDF from 'jspdf'
 import moment from 'moment'
-import dog from '../../images/dog.png'
 import Swal from 'sweetalert2'
-import { MainLayout } from '../../layout/MainLayout'
+import dog from '../../images/dog.png'
+import noturnos from '../../images/noturnos.png'
+import qr from '../../images/qr-info.png'
 
 export const TurnosDetail = () => {
   const [turnos, setTurnos] = useState([])
+  const [usuario, setUsuario] = useState([])
 
   useEffect(() => {
     const loadTurnos = async () => {
       try {
         const usuario_id = parseInt(localStorage.getItem('usuario_id'))
         const response = await getTurnoRequest(usuario_id)
-        setTurnos(response.data)
-        console.log(response.data)
+        setTurnos(response.data.turnos)
+        setUsuario(response.data.userInfo)
+        console.log(response.data.userInfo[0].nombre);
+        console.log(response)
       } catch (error) {
         console.error(error)
       }
@@ -27,13 +32,11 @@ export const TurnosDetail = () => {
     return new Promise((resolve, reject) => {
       const img = new Image()
       img.onload = () => {
-        // Crear un canvas y dibujar la imagen en él
         const canvas = document.createElement('canvas')
         const ctx = canvas.getContext('2d')
         canvas.width = img.width
         canvas.height = img.height
         ctx.drawImage(img, 0, 0)
-        // obtener la data URL del canvas
         const dataUrl = canvas.toDataURL('image/png')
         resolve(dataUrl)
       }
@@ -43,21 +46,39 @@ export const TurnosDetail = () => {
   }
 
   const generatePDF = async (turno) => {
-    const doc = new jsPDF()
-    const imageData = await getImageDataUrl(dog)
-
-    doc.addImage(imageData, 'PNG', 160, 10, 50, 50)
-    doc.setFontSize(22)
-    doc.text('Dog360', 105, 30, { align: 'center' })
-    doc.setFontSize(12) // Vuelve a poner la fuente al tamaño normal
-
-    const fechaFormateada = moment(turno.dia).format('DD/MM/YYYY')
-
-    doc.text(`Dia: ${fechaFormateada}`, 10, 50)
-    doc.text(`Hora: ${turno.hora}`, 10, 60)
-    doc.text(`Mascota: ${turno.mascota}`, 10, 70)
-    doc.text(`Descripcion: ${turno.descripcion}`, 10, 80)
-    doc.save(`Turno-${turno.id}.pdf`)
+    try {
+      const doc = new jsPDF()
+      const dogImageData = await getImageDataUrl(dog)
+      const qrImageData = await getImageDataUrl(qr) 
+    
+      doc.addImage(dogImageData, 'PNG', 160, 10, 50, 50)
+      doc.setFontSize(22)
+      doc.text('Dog360', 105, 30, { align: 'center' })
+      doc.setFontSize(12)
+    
+      doc.text('Informacion del turno', 105, 45, { align: 'center' }) 
+    
+      const fechaFormateada = moment(turno.dia).format('DD/MM/YYYY')
+    
+      doc.text(`Dia: ${fechaFormateada}`, 10, 55)
+      doc.text(`Hora: ${turno.hora}`, 10, 65)
+      doc.text(`Mascota: ${turno.mascota}`, 10, 75)
+      doc.text(`Descripcion: ${turno.descripcion}`, 10, 85)
+    
+      doc.text('Informacion del cliente', 105, 95, { align: 'center' }) 
+    
+      doc.text(`Nombre: ${usuario[0].nombre}`, 10, 105)
+      doc.text(`Apellido: ${usuario[0].apellido}`, 10, 115)
+      doc.text(`Email: ${usuario[0].correo}`, 10, 125)
+    
+      doc.addImage(qrImageData, 'PNG', 80, 135, 50, 50) 
+      doc.text('Escanea el QR para contactarnos', 105, 195, { align: 'center' }) 
+    
+      doc.save(`Turno-${turno.id}.pdf`)
+    } catch (error) {
+      console.error(error)
+      
+    }
   }
 
   const handleDelete = async (id) => {
@@ -79,10 +100,13 @@ export const TurnosDetail = () => {
 
   return (
     <MainLayout>
-      <h1 className="mb-4 text-2xl font-bold">Mis turnos</h1>
       <div className="flex flex-wrap justify-center">
         {turnos.length === 0 ? (
-          <p>No hay turnos</p>
+          <div className='flex flex-col justify-center items-center'>
+            <p className="text-2xl font-bold text-gray-700">No hay turnos</p>
+            <img src={noturnos} alt="No turnos" className='w-2/3' />
+          </div>
+          
         ) : (
           turnos.map((turno) => (
             <div
