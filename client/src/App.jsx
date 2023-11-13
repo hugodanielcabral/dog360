@@ -9,6 +9,7 @@ import { DogDetail } from './pages/Dogs/DogDetail'
 import { NewTurno } from './pages/Turnos/NewTurno'
 import { TurnosDetail } from './pages/Turnos/TurnosDetail'
 import { PrivateRoute } from './context/PrivateRoute'
+import { AboutUs } from './pages/AboutUs'
 
 export function App() {
   const isLoggedIn = localStorage.getItem('isLoggedIn')
@@ -25,8 +26,10 @@ export function App() {
         {/*         <Route path="/dog/:id" element={<DogDetail />} />
          */}
         <Route path="/edit/:id" element={<DogsForm />} />
+        <Route path="/about" element={<AboutUs />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </DogContextProvider>
   )
 }
+

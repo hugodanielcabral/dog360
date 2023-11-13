@@ -1,6 +1,8 @@
+import { useNavigate } from 'react-router-dom'
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa6'
 
 export const Footer = () => {
+  const navigate = useNavigate()
   return (
     <footer className="bg-[#BF9270] text-white mt-8 py-12 px-4 border-t border-solid border-[#65451F]">
       <div className="flex flex-col items-center md:flex-row justify-evenly">
@@ -41,6 +43,17 @@ export const Footer = () => {
         </p>
         <ul className="text-center md:text-right">
           <li>
+            <button></button>
+            <a
+              href=""
+              onClick={() => navigate('/about')}
+              rel="noopener noreferrer"
+              className="text-[#ffffff] hover:text-[#65451F] text-xl duration-150"
+            >
+              Sobre nosotros
+            </a>
+          </li>
+          <li>
             <a
               href="/notfound"
               target="_blank"
@@ -59,6 +72,7 @@ export const Footer = () => {
             >
               Términos y condiciones
             </a>
+            
           </li>
         </ul>
       </div>
