@@ -106,9 +106,7 @@ export const Login = () => {
               <div className="text-center text-slate-900">
                 <span>OR</span>
               </div>
-              <button className="py-2 font-bold rounded-md bg-[#e3b7a0] focus:outline-none hover:shadow duration-100 hover:opacity-80 text-slate-900">
-                <Link to="/signup">Crear Cuenta</Link>
-              </button>
+                <Link to="/signup" className="py-2 font-bold rounded-md bg-[#e3b7a0] focus:outline-none hover:shadow duration-100 hover:opacity-80 text-slate-900 text-center">Crear Cuenta</Link>
             </div>
           </Form>
         )}

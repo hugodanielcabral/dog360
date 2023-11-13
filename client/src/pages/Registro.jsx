@@ -157,9 +157,7 @@ export const Registro = () => {
               <div className="text-center text-slate-900">
                 <span>OR</span>
               </div>
-              <button className="py-2 font-bold rounded-md bg-[#e3b7a0] focus:outline-none hover:shadow duration-100 hover:opacity-80 text-slate-900">
-                <Link to="/signin">Iniciar Sesión</Link>
-              </button>
+                <Link to="/signin" className="py-2 font-bold rounded-md bg-[#e3b7a0] focus:outline-none hover:shadow duration-100 hover:opacity-80 text-slate-900 text-center">Iniciar Sesión</Link>
             </div>
           </Form>
         )}
