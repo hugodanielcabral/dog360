@@ -26,17 +26,17 @@ export const DogsForm = () => {
       .max(25, 'El nombre no debe tener más de 25 caracteres')
       .required('El nombre es requerido'),
     imagen: Yup.string()
-      .matches(/(\.jpg|\.png)$/, 'La imagen debe ser .jpg o .png')
+      /* .matches(/(\.jpg|\.png)$/, 'La imagen debe ser .jpg o .png') */
       .required('La imagen es requerida'),
     descripcion: Yup.string()
       .min(10, 'La descripción debe tener al menos 10 caracteres')
-      .max(40, 'La descripción no debe tener más de 40 caracteres')
+      .max(250, 'La descripción no debe tener más de 250 caracteres')
       .required('La descripción es requerida'),
     tamanio: Yup.string()
       .required('El tamaño es requerido'),
     personalidad: Yup.string()
       .min(10, 'La personalidad debe tener al menos 10 caracteres')
-      .max(40, 'La personalidad no debe tener más de 40 caracteres')
+      .max(250, 'La personalidad no debe tener más de 250 caracteres')
       .required('La personalidad es requerida'),
     esperanza_de_vida: Yup.string()
       .required('La esperanza de vida es requerida'),

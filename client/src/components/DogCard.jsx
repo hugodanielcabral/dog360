@@ -17,7 +17,7 @@ export const DogCard = ({ dog }) => {
             <p>${dog.descripcion}</p>
             <p><strong>Tamaño:</strong> ${dog.tamanio}</p>
             <p><strong>Personalidad:</strong> ${dog.personalidad}</p>
-            <p><strong>Esperanza de vida:</strong> ${dog.esperanza_de_vida}</p>
+            <p><strong>Esperanza de vida:</strong> ${dog.esperanza_de_vida} años</p>
           </div>
         </div>`,
       showConfirmButton: rol === 'ADMIN',
