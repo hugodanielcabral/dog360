@@ -24,8 +24,8 @@ export const DogCard = ({ dog }) => {
       showCancelButton: rol === 'ADMIN',
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Editar',
-      cancelButtonText: 'Eliminar',
+      confirmButtonText: "Editar",
+      cancelButtonText: "Eliminar",
       customClass: {
         actions: 'flex space-x-4 mt-4',
       },
