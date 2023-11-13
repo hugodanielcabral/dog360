@@ -15,10 +15,10 @@ export const DogCard = ({ dog }) => {
       <div style="position: absolute; top: 0; bottom: 0; display: flex; flex-direction: column; justify-content: space-between; background: rgba(0, 0, 0, 0.7); color: white; text-align: left; padding: 20px;">
         <h1 class="text-4xl font-bold mb-2">${dog.nombre}</h1>
         <div style="margin-top: auto;">
-          <p><strong>Tamaño:</strong> ${dog.tamanio}</p>
+        <p>${dog.descripcion}</p>
+          <p><strong>Peso:</strong> ${dog.tamanio}kg</p>
           <p><strong>Personalidad:</strong> ${dog.personalidad}</p>
           <p><strong>Esperanza de vida:</strong> ${dog.esperanza_de_vida} años</p>
-          <p>${dog.descripcion}</p>
         </div>
       </div>
     </div>
