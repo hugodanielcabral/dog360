@@ -7,7 +7,7 @@ export const Footer = () => {
         <ul className="flex gap-4 mb-4 md:mb-0">
           <li>
             <a
-              href="https://www.facebook.com/dog360"
+              href="#"
               target="_blank"
               rel="noopener noreferrer"
               className="text-3xl text-[#ffffff] hover:text-[#65451F] duration-150"
@@ -17,7 +17,7 @@ export const Footer = () => {
           </li>
           <li>
             <a
-              href="https://www.instagram.com/dog360/"
+              href="#"
               target="_blank"
               rel="noopener noreferrer"
               className="text-3xl text-[#ffffff] hover:text-[#65451F] duration-150"
@@ -27,7 +27,7 @@ export const Footer = () => {
           </li>
           <li>
             <a
-              href="https://twitter.com/dog360"
+              href="#"
               target="_blank"
               rel="noopener noreferrer"
               className="text-3xl text-[#ffffff] hover:text-[#65451F] duration-150"
