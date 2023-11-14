@@ -115,7 +115,7 @@ export const TurnosDetail = () => {
           turnos.map((turno) => (
             <div
               key={turno.id}
-              className="w-1/3 p-4 m-2 mb-4 text-gray-700 bg-white rounded shadow"
+              className="md:w-1/3 p-4 m-2 mb-4 text-gray-700 bg-white rounded shadow"
             >
               <h1 className="mb-2 text-2xl font-bold">Turno N° {turno.id}</h1>
               <p className="text-lg font-bold">
@@ -126,18 +126,20 @@ export const TurnosDetail = () => {
               <p className="text-lg font-bold text-gray-600">
                 {turno.descripcion}
               </p>
-              <button
-                onClick={() => generatePDF(turno)}
-                className="px-4 py-2 mt-4 text-white bg-blue-500 rounded"
-              >
-                Imprimir PDF
-              </button>
-              <button
-                className="px-4 py-2 mt-4 text-white bg-red-500 rounded"
-                onClick={() => handleDelete(turno.id)}
-              >
-                Cancelar/Eliminar
-              </button>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => generatePDF(turno)}
+                  className="px-4 py-2 mt-4 text-white bg-blue-500 rounded"
+                >
+                  Imprimir PDF
+                </button>
+                <button
+                  className="px-4 py-2 mt-4 text-white bg-red-500 rounded"
+                  onClick={() => handleDelete(turno.id)}
+                >
+                  Cancelar/Eliminar
+                </button>
+              </div>
             </div>
           ))
         )}
