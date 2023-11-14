@@ -1,8 +1,14 @@
-import { useNavigate } from 'react-router-dom'
-import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa6'
+import { useNavigate } from "react-router-dom";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaTwitter,
+  FaPhone,
+  FaLocationDot,
+} from "react-icons/fa6";
 
 export const Footer = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <footer className="bg-[#BF9270] text-white mt-8 py-12 px-4 border-t border-solid border-[#65451F]">
       <div className="flex flex-col items-center md:flex-row justify-evenly">
@@ -39,14 +45,22 @@ export const Footer = () => {
           </li>
         </ul>
         <p className="text-center text-xl text-[#000000] mb-4 md:mb-0 md:text-left align-self-center">
-          &copy; 2023 Dog360. Todos los derechos reservados.
+          <p className="font-bold text-center">Dog360</p>
+          <div className="flex items-center justify-center">
+            <FaLocationDot />
+            Calle 1, San Miguel de Tucumán, Tucumán.
+          </div>
+          <div className="flex items-center justify-center">
+            <FaPhone />
+            123456789
+          </div>
         </p>
         <ul className="text-center md:text-right">
           <li>
             <button></button>
             <a
               href=""
-              onClick={() => navigate('/about')}
+              onClick={() => navigate("/about")}
               rel="noopener noreferrer"
               className="text-[#ffffff] hover:text-[#65451F] text-xl duration-150"
             >
@@ -72,10 +86,9 @@ export const Footer = () => {
             >
               Términos y condiciones
             </a>
-            
           </li>
         </ul>
       </div>
     </footer>
-  )
-}
+  );
+};
