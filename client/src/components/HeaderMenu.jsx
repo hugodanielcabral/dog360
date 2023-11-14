@@ -7,9 +7,9 @@ export const HeaderMenu = () => {
   const navigate = useNavigate()
 
   const handleSignOut = () => {
-    localStorage.setItem('isLoggedIn', 'false')
-    localStorage.setItem('rol', '')
-    localStorage.setItem('usuario_id', '')
+    localStorage.removeItem('isLoggedIn')
+    localStorage.removeItem('rol')
+    localStorage.removeItem('usuario_id')
     Swal.fire({
       icon: 'success',
       title: 'Sesión cerrada',
