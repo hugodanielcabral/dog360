@@ -1,5 +1,6 @@
 import { MainLayout } from '../layout/MainLayout'
 import avatar from "../images/avatar.png"
+import avatar2 from "../images/avatar2.jpg"
 
 export const AboutUs = () => {
   const datos = [
@@ -7,7 +8,7 @@ export const AboutUs = () => {
       id: 1,
       nombre: 'Daniel Cabral',
       legajo: 55783,
-      foto: avatar,
+      foto: avatar2,
     },
     {
       id: 2,
@@ -36,8 +37,8 @@ export const AboutUs = () => {
         <div key={id} className="max-w-md rounded overflow-hidden shadow-lg m-4">
           <img className="w-64 h-64 object-cover" src={foto} alt="Sunset in the mountains" />
           <div className="px-6 py-4">
-            <div className="font-bold text-gray-700 text-xl mb-2">{nombre}</div>
-            <p className="text-gray-700 text-base">
+            <div className="font-bold text-gray-700 text-xl text-center mb-2">{nombre}</div>
+            <p className="text-gray-700 text-center text-base">
               Legajo: {legajo}
             </p>
           </div>

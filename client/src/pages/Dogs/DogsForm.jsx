@@ -70,6 +70,9 @@ export const DogsForm = () => {
                   title: 'Raza actualizada',
                   showConfirmButton: false,
                   timer: 1500,
+                }).then(() => {
+                  actions.resetForm()
+                  navigate('/')
                 })
               : Swal.fire({
                   icon: 'error',
