@@ -1,67 +1,67 @@
-import { Formik, Field, Form, ErrorMessage } from 'formik'
-import { useNavigate } from 'react-router-dom'
-import { createTurnoRequest } from '../../api/turnos.api'
-import * as Yup from 'yup'
-import moment from 'moment'
-import Swal from 'sweetalert2'
-import { MainLayout } from '../../layout/MainLayout'
+import { Formik, Field, Form, ErrorMessage } from "formik";
+import { useNavigate } from "react-router-dom";
+import { createTurnoRequest } from "../../api/turnos.api";
+import * as Yup from "yup";
+import moment from "moment";
+import Swal from "sweetalert2";
+import { MainLayout } from "../../layout/MainLayout";
 
 export const NewTurno = () => {
-  const usuario_id = parseInt(localStorage.getItem('usuario_id'))
-  const navigate = useNavigate()
+  const usuario_id = parseInt(localStorage.getItem("usuario_id"));
+  const navigate = useNavigate();
 
   const validationSchema = Yup.object().shape({
     dia: Yup.date()
       .min(
-        moment().add(1, 'days').toDate(),
-        'El día del turno debe ser mayor al día actual'
+        moment().add(0, "days").toDate(),
+        "El día del turno debe ser mayor al día actual"
       )
-      .test('day-of-week', 'No se permiten turnos los domingos', (value) => {
-        return moment(value).day() !== 0
+      .test("day-of-week", "No se permiten turnos los domingos", (value) => {
+        return moment(value).day() !== 0;
       })
-      .required('Requerido'),
+      .required("Requerido"),
     hora: Yup.string()
-      .test('valid-time', 'Hora no válida', (value) => {
-        const hour = parseInt(value.split(':')[0])
-        const minute = parseInt(value.split(':')[1])
-        return (hour >= 9 && hour < 13) || (hour >= 18 && hour < 22)
+      .test("valid-time", "Hora no válida", (value) => {
+        const hour = parseInt(value.split(":")[0]);
+        const minute = parseInt(value.split(":")[1]);
+        return (hour >= 9 && hour < 13) || (hour >= 18 && hour < 22);
       })
-      .required('Requerido'),
-    mascota: Yup.string().required('Requerido'),
-    descripcion: Yup.string().required('Requerido'),
-  })
+      .required("Requerido"),
+    mascota: Yup.string().required("Requerido"),
+    descripcion: Yup.string().required("Requerido"),
+  });
 
   return (
     <MainLayout>
       <div className="container mx-auto">
         <Formik
           initialValues={{
-            dia: '',
-            hora: '',
-            mascota: '',
-            descripcion: '',
+            dia: "",
+            hora: "",
+            mascota: "",
+            descripcion: "",
             usuario_id: usuario_id,
           }}
           validationSchema={validationSchema}
           onSubmit={async (values, actions) => {
-            const response = await createTurnoRequest(values)
+            const response = await createTurnoRequest(values);
 
             if (response.status === 200) {
               Swal.fire({
-                icon: 'success',
-                title: 'Turno creado',
-                text: 'Turno creado correctamente',
+                icon: "success",
+                title: "Turno creado",
+                text: "Turno creado correctamente",
               }).then(() => {
-                navigate('/mis-turnos')
-              })
+                navigate("/mis-turnos");
+              });
             } else {
               Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'Error al crear el turno',
-              })
+                icon: "error",
+                title: "Error",
+                text: "Error al crear el turno",
+              });
             }
-            actions.resetForm()
+            actions.resetForm();
           }}
         >
           {({ isSubmitting }) => (
@@ -97,7 +97,9 @@ export const NewTurno = () => {
                   className="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                 >
                   <optgroup label="Mañana">
-                   
+                    <option value="" disabled>
+                      Hora del turno
+                    </option>
                     <option value="9:00">9:00</option>
                     <option value="10:00">10:00</option>
                     <option value="11:00">11:00</option>
@@ -166,5 +168,5 @@ export const NewTurno = () => {
         </Formik>
       </div>
     </MainLayout>
-  )
-}
+  );
+};

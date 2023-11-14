@@ -126,7 +126,7 @@ export const TurnosDetail = () => {
               <p className="text-lg font-bold text-gray-600">
                 {turno.descripcion}
               </p>
-              <div className="flex gap-2">
+              <div className="flex gap-2 md:block">
                 <button
                   onClick={() => generatePDF(turno)}
                   className="px-4 py-2 mt-4 text-white bg-blue-500 rounded"
